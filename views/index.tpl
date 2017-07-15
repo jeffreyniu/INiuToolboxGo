@@ -79,7 +79,7 @@ Website: http://thevectorlab.net/
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <span class="photo"><img src="./img/avatar-mini.png" alt="avatar" /></span>
+                                        <span class="photo"><img src="/static/img/avatar-mini.png" alt="avatar" /></span>
 									<span class="subject">
 									<span class="from">Dulal Khan</span>
 									<span class="time">Just now</span>
@@ -91,7 +91,7 @@ Website: http://thevectorlab.net/
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <span class="photo"><img src="./img/avatar-mini.png" alt="avatar" /></span>
+                                        <span class="photo"><img src="/static/img/avatar-mini.png" alt="avatar" /></span>
 									<span class="subject">
 									<span class="from">Rafiqul Islam</span>
 									<span class="time">10 mins</span>
@@ -103,7 +103,7 @@ Website: http://thevectorlab.net/
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <span class="photo"><img src="./img/avatar-mini.png" alt="avatar" /></span>
+                                        <span class="photo"><img src="/static/img/avatar-mini.png" alt="avatar" /></span>
 									<span class="subject">
 									<span class="from">Sumon Ahmed</span>
 									<span class="time">3 hrs</span>
@@ -115,7 +115,7 @@ Website: http://thevectorlab.net/
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <span class="photo"><img src="./img/avatar-mini.png" alt="avatar" /></span>
+                                        <span class="photo"><img src="/static/img/avatar-mini.png" alt="avatar" /></span>
 									<span class="subject">
 									<span class="from">Dulal Khan</span>
 									<span class="time">Just now</span>
@@ -205,7 +205,7 @@ Website: http://thevectorlab.net/
 						<!-- BEGIN USER LOGIN DROPDOWN -->
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="img/avatar1_small.jpg" alt="">
+                            <img src="/static/img/avatar1_small.jpg" alt="">
                                 <span class="username">Mosaddek Hossain</span>
 							<b class="caret"></b>
 							</a>
@@ -245,13 +245,11 @@ Website: http://thevectorlab.net/
 			<ul class="sidebar-menu">
 				<li class="has-sub active">
 					<a href="javascript:;" class="">
-					    <span class="icon-box"> <i class="icon-dashboard"></i></span> Dashboard - shared on weidea.net
+					    <span class="icon-box"> <i class="icon-dashboard"></i></span> Dashboard
                         <span class="arrow"></span>
                     </a>
                     <ul class="sub">
-                        <li class="active"><a class="" href="index.html">Dashboard 1</a></li>
-                        <li><a class="" href="index_2.html">Dashboard 2</a></li>
-
+                        <li class="active"><a class="" href="index.html">Dashboard</a></li>
                     </ul>
 				</li>
 				<li class="has-sub">
@@ -513,7 +511,7 @@ Website: http://thevectorlab.net/
 								</div>
 								<div class="widget-body">
 									<div id="site_statistics_loading">
-										<img src="img/loading.gif" alt="loading" />
+										<img src="/static/img/loading.gif" alt="loading" />
 									</div>
 									<div id="site_statistics_content" class="hide">
 										<div id="site_statistics" class="chart"></div>
@@ -534,7 +532,7 @@ Website: http://thevectorlab.net/
                                 </div>
                                 <div class="widget-body">
                                     <div id="load_statistics_loading">
-                                        <img src="img/loading.gif" alt="loading" />
+                                        <img src="/static/img/loading.gif" alt="loading" />
                                     </div>
                                     <div id="load_statistics_content" class="hide" style="margin: 0px 0 20px 0">
                                         <div id="load_statistics" class="chart" style="height: 280px"></div>
@@ -743,7 +741,7 @@ Website: http://thevectorlab.net/
                                     <div class="timeline-messages">
                                             <!-- Comment -->
                                             <div class="msg-time-chat">
-                                                <a class="message-img" href="#"><img alt="" src="img/avatar1.jpg" class="avatar"></a>
+                                                <a class="message-img" href="#"><img alt="" src="/static/img/avatar1.jpg" class="avatar"></a>
                                                 <div class="message-body msg-in">
                                                     <div class="text">
                                                         <p class="attribution"><a href="#">Mosaddek Hossain</a> at 1:55pm, 13th April 2013</p>
@@ -755,7 +753,7 @@ Website: http://thevectorlab.net/
 
                                             <!-- Comment -->
                                             <div class="msg-time-chat">
-                                                <a class="message-img" href="#"><img alt="" src="img/avatar2.jpg" class="avatar"></a>
+                                                <a class="message-img" href="#"><img alt="" src="/static/img/avatar2.jpg" class="avatar"></a>
                                                 <div class="message-body msg-out">
                                                     <div class="text">
                                                         <p class="attribution"> <a href="#">Dulal Khan</a> at 2:01pm, 13th April 2013</p>
@@ -767,7 +765,7 @@ Website: http://thevectorlab.net/
 
                                             <!-- Comment -->
                                             <div class="msg-time-chat">
-                                                <a class="message-img" href="#"><img alt="" src="img/avatar1.jpg" class="avatar"></a>
+                                                <a class="message-img" href="#"><img alt="" src="/static/img/avatar1.jpg" class="avatar"></a>
                                                 <div class="message-body msg-in">
                                                     <div class="text">
                                                         <p class="attribution"><a href="#">Mosaddek Hossain</a> at 2:03pm, 13th April 2013</p>
@@ -779,7 +777,7 @@ Website: http://thevectorlab.net/
 
                                             <!-- Comment -->
                                             <div class="msg-time-chat">
-                                                <a class="message-img" href="#"><img alt="" src="img/avatar2.jpg" class="avatar"></a>
+                                                <a class="message-img" href="#"><img alt="" src="/static/img/avatar2.jpg" class="avatar"></a>
                                                 <div class="message-body msg-out">
                                                     <div class="text">
                                                         <p class="attribution"><a href="#">Dulal Khan</a> at 2:05pm, 13th April 2013</p>

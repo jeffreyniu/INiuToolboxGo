@@ -618,6 +618,9 @@ ul.sidebar-menu span.icon-box  {
     text-align: center;
     /*background: url("../img/top-bg.jpg");*/
 }
+#footer a{
+    color: #fff;
+}
 
 #footer .go-top {
     display: block;

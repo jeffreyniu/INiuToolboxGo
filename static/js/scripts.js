@@ -391,7 +391,7 @@ var App = function () {
             var time_str = time.toString('MMM dd, yyyy HH:MM');
             var tpl = '';
             tpl += '<li class="out">';
-            tpl += '<img class="avatar" alt="" src="img/avatar1.jpg"/>';
+            tpl += '<img class="avatar" alt="" src="/static/img/avatar1.jpg"/>';
             tpl += '<div class="message">';
             tpl += '<span class="arrow"></span>';
             tpl += '<a href="#" class="name">Sumon Ahmed</a>&nbsp;';
@@ -1558,7 +1558,7 @@ var App = function () {
                 // (string | mandatory) the text inside the notification
                 text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.',
                 // (string | optional) the image to display on the left
-                image: 'img/avatar-mini.png',
+                image: '/static/img/avatar-mini.png',
                 // (bool | optional) if you want it to fade out on its own or just sit there
                 sticky: true,
                 // (int | optional) the time you want it to be alive for before fading out
@@ -1577,7 +1577,7 @@ var App = function () {
                 // (string | mandatory) the text inside the notification
                 text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.',
                 // (string | optional) the image to display on the left
-                image: 'img/avatar-mini.png',
+                image: '/static/img/avatar-mini.png',
                 // (bool | optional) if you want it to fade out on its own or just sit there
                 sticky: false,
                 // (int | optional) the time you want it to be alive for before fading out
@@ -1596,7 +1596,7 @@ var App = function () {
                 // (string | mandatory) the text inside the notification
                 text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.',
                 // (string | optional) the image to display on the left
-                image: 'img/avatar-mini.png',
+                image: '/static/img/avatar-mini.png',
                 // (bool | optional) if you want it to fade out on its own or just sit there
                 sticky: false,
                 // (function) before the gritter notice is opened
@@ -2251,7 +2251,7 @@ var App = function () {
         blockUI: function (el, loaderOnTop) {
             lastBlockedUI = el;
             jQuery(el).block({
-                message: '<img src="img/loading.gif" align="absmiddle">',
+                message: '<img src="/static/img/loading.gif" align="absmiddle">',
                 css: {
                     border: 'none',
                     padding: '2px',
