@@ -2213,9 +2213,9 @@ var App = function () {
             handleFormWizards();
             handleSidebarToggler();
 
-            if (isMainPage) { // this is for demo purpose. you may remove handleIntro function for your project
-                handleIntro();
-            }
+            //if (isMainPage) { // this is for demo purpose. you may remove handleIntro function for your project
+            //    handleIntro();
+            //}
         },
 
         // login page setup

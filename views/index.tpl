@@ -38,15 +38,15 @@ Website: http://thevectorlab.net/
 			<div class="container-fluid">
 				<!-- BEGIN LOGO -->
 				<a class="brand" href="/views/index.tpl">
-				    <div style="width:60px;height:50px;position:relative;float:left;display:inline-block;bottom:12px;">
-            <div style="width:12px;height:20px;left:10px;top:25px;transform:skewY(30deg);background-color:green;position:absolute;"></div>
-            <div style="width:12px;height:20px;left:37px;top:25px;transform:skewY(-30deg);background-color:green;position:absolute;"></div>
-            <div style="width:6px;height:35px;left:24px;top:13px;transform:skewY(-30deg);background-color:greenYellow;position:absolute;"></div>
-            <div style="width:6px;height:35px;left:30px;top:13px;transform:skewY(30deg);background-color:greenYellow;position:absolute;"></div>
-            <div style="width:12px;height:20px;left:7px;top:5px;transform:rotate(-60deg) skewY(-30deg);background-color:#f6844e;position:absolute;"></div>
-            <div style="width:12px;height:20px;left:41px;top:5px;transform:rotate(60deg) skewY(30deg);background-color:#f6844e;position:absolute;"></div>     
-          </div>
-          <div class="web_title">i工具箱</div>      
+				    <div style="width:60px;height:50px;position:relative;float:left;display:inline-block;bottom:5px;">
+                    <div style="width:12px;height:20px;left:10px;top:25px;transform:skewY(30deg);background-color:green;position:absolute;"></div>
+                    <div style="width:12px;height:20px;left:37px;top:25px;transform:skewY(-30deg);background-color:green;position:absolute;"></div>
+                    <div style="width:6px;height:35px;left:24px;top:13px;transform:skewY(-30deg);background-color:greenYellow;position:absolute;"></div>
+                    <div style="width:6px;height:35px;left:30px;top:13px;transform:skewY(30deg);background-color:greenYellow;position:absolute;"></div>
+                    <div style="width:12px;height:20px;left:7px;top:5px;transform:rotate(-60deg) skewY(-30deg);background-color:#f6844e;position:absolute;"></div>
+                    <div style="width:12px;height:20px;left:41px;top:5px;transform:rotate(60deg) skewY(30deg);background-color:#f6844e;position:absolute;"></div>     
+                </div>
+                <div class="web_title">i工具箱<br/>iToolbox</div>      
 				</a>
 				<!-- END LOGO -->
 				<!-- BEGIN RESPONSIVE MENU TOGGLER -->
