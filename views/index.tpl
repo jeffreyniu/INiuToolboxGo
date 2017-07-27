@@ -243,7 +243,7 @@ Website: http://thevectorlab.net/
                         <span class="arrow"></span>
                     </a>
                     <ul class="sub">
-                        <li class="active"><a class="" href="index.html">Dashboard</a></li>
+                        <li class="active"><a class="" href=".">Dashboard</a></li>
                     </ul>
 				</li>				
 				<li class="has-sub">
@@ -252,12 +252,7 @@ Website: http://thevectorlab.net/
 					<span class="arrow"></span>
 					</a>
                     <ul class="sub">
-                        <li><a class="" href="blank.html">Blank Page</a></li>
-                        <li><a class="" href="sidebar_closed.html">Sidebar Closed Page</a></li>
-                        <li><a class="" href="coming_soon.html">Coming Soon</a></li>
-                        <li><a class="" href="blog.html">Blog</a></li>
-                        <li><a class="" href="about_us.html">About Us</a></li>
-                        <li><a class="" href="contact_us.html">Contact Us</a></li>
+                        <li><a class="" href="/contents/blog">Blog</a></li>               
                     </ul>
 				</li>
 			</ul>
@@ -292,12 +287,12 @@ Website: http://thevectorlab.net/
 						</h3>
 						<ul class="breadcrumb">
 							<li>
-                                <a href="#"><i class="icon-home"></i></a><span class="divider">&nbsp;</span>
+                                <a href="/"><i class="icon-home"></i></a><span class="divider">&nbsp;</span>
 							</li>
                             <li>
-                                <a href="#">Admin Lab</a> <span class="divider">&nbsp;</span>
+                                <a href="/">Dashboard</a> <span class="divider">&nbsp;</span>
                             </li>
-							<li><a href="#">Dashboard</a><span class="divider-last">&nbsp;</span></li>
+							<li><a href="/">Dashboard</a><span class="divider-last">&nbsp;</span></li>
                             <li class="pull-right search-wrap">
                                 <form class="hidden-phone">
                                     <div class="search-input-area">
@@ -312,52 +307,7 @@ Website: http://thevectorlab.net/
 				</div>
 				<!-- END PAGE HEADER-->
 				<!-- BEGIN PAGE CONTENT-->
-				<div id="page" class="dashboard">
-					<div class="row-fluid">
-						<div class="span8">
-							<!-- BEGIN SITE VISITS PORTLET-->
-							<div class="widget">
-								<div class="widget-title">
-									<h4><i class="icon-bar-chart"></i> Line Chart</h4>
-									<span class="tools">
-									<a href="javascript:;" class="icon-chevron-down"></a>
-									<a href="javascript:;" class="icon-remove"></a>
-									</span>
-								</div>
-								<div class="widget-body">
-									<div id="site_statistics_loading">
-										<img src="/static/img/loading.gif" alt="loading" />
-									</div>
-									<div id="site_statistics_content" class="hide">
-										<div id="site_statistics" class="chart"></div>
-									</div>
-								</div>
-							</div>
-							<!-- END SITE VISITS PORTLET-->
-						</div>
-                        <div class="span4">
-                            <!-- BEGIN SERVER LOAD PORTLET-->
-                            <div class="widget">
-                                <div class="widget-title">
-                                    <h4><i class="icon-umbrella"></i> Live Chart</h4>
-									<span class="tools">
-									<a href="javascript:;" class="icon-chevron-down"></a>
-									<a href="javascript:;" class="icon-remove"></a>
-									</span>
-                                </div>
-                                <div class="widget-body">
-                                    <div id="load_statistics_loading">
-                                        <img src="/static/img/loading.gif" alt="loading" />
-                                    </div>
-                                    <div id="load_statistics_content" class="hide" style="margin: 0px 0 20px 0">
-                                        <div id="load_statistics" class="chart" style="height: 280px"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- END SERVER LOAD PORTLET-->
-                        </div>
-
-					</div>
+				<div id="page" class="dashboard">					
 					<!-- BEGIN SQUARE STATISTIC BLOCKS-->
                     <div class="square-state">
                         <div class="row-fluid">
@@ -365,15 +315,6 @@ Website: http://thevectorlab.net/
                                 <i class="icon-group"></i>
                                 <div>Users</div>
                                 <span class="badge badge-important">2</span>
-                            </a>
-                            <a class="icon-btn span2" href="#">
-                                <i class="icon-barcode"></i>
-                                <div>Products</div>
-                                <span class="badge badge-success">4</span>
-                            </a>
-                            <a class="icon-btn span2" href="#">
-                                <i class="icon-bar-chart"></i>
-                                <div>Reports</div>
                             </a>
                             <a class="icon-btn span2" href="#">
                                 <i class="icon-calendar"></i>
@@ -388,13 +329,6 @@ Website: http://thevectorlab.net/
                                 <div>Task</div>
                                 <span class="badge badge-important">3</span>
                             </a>
-                        </div>
-                        <div class="row-fluid">
-                            <a class="icon-btn span2" href="#">
-                                <i class="icon-envelope"></i>
-                                <div>Inbox</div>
-                                <span class="badge badge-info">12</span>
-                            </a>
                             <a class="icon-btn span2" href="#">
                                 <i class="icon-bullhorn"></i>
                                 <div>Notification</div>
@@ -405,10 +339,8 @@ Website: http://thevectorlab.net/
                                 <div>Projects</div>
                                 <span class="badge badge-info">21</span>
                             </a>
-                            <a class="icon-btn span2" href="#">
-                                <i class="icon-money"></i>
-                                <div>Finance</div>
-                            </a>
+                        </div>
+                        <div class="row-fluid">
                             <a class="icon-btn span2" href="#">
                                 <i class="icon-thumbs-up"></i>
                                 <div>Feedback</div>
