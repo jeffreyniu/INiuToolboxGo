@@ -213,7 +213,7 @@
 	}
     #header .brand {
         margin-top: -5px !important;
-        padding: 22px 35px !important;
+        padding: 5px 35px !important;
     }
 
     #header.navbar-inverse .navbar-inner {
@@ -490,7 +490,6 @@
     }
     #header .brand {
         margin-top: -5px !important;
-        padding: 22px 35px !important;
     }
 	.dashboard-report-li {
 		float: left;
@@ -590,7 +589,6 @@
     }
     #header .brand {
         margin-top: -5px !important;
-        padding: 22px 22px !important;
     }
 
     .navbar-inverse .brand, .navbar-inverse .nav > li > a{
