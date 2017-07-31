@@ -10,5 +10,6 @@ type MainController struct {
 
 func (c *MainController) Get() {
 	c.Data["Email"] = "iniutoolbox@aliyun.com"
+	c.Layout = "layout/layout.tpl"
 	c.TplName = "index.tpl"
 }

@@ -13,9 +13,11 @@ type BlogDetailsController struct {
 }
 
 func (c *BlogController) Get() {
+	c.Layout = "layout/layout.tpl"
 	c.TplName = "contents/blog.tpl"
 }
 
 func (c *BlogDetailsController) Get() {
+	c.Layout = "layout/layout.tpl"
 	c.TplName = "contents/blog_details.tpl"
 }
