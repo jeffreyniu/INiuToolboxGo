@@ -53,14 +53,14 @@ Website: http://thevectorlab.net/
 				<!-- END RESPONSIVE MENU TOGGLER -->
 				<div id="top_menu" class="nav notify-row">
                     <!-- BEGIN NOTIFICATION -->
-					<ul class="nav top-menu">
+					<ul class="nav top-menu">						
                         <!-- BEGIN SETTINGS -->
                         <li class="dropdown">
                             <a class="dropdown-toggle element" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Settings">
                                 <i class="icon-cog"></i>
                             </a>
                         </li>
-                        <!-- END SETTINGS -->
+						<!-- END SETTINGS -->
                         <!-- BEGIN INBOX DROPDOWN -->
                         <li class="dropdown" id="header_inbox_bar">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -259,6 +259,20 @@ Website: http://thevectorlab.net/
 			<!-- END SIDEBAR MENU -->
 		</div>
 		<!-- END SIDEBAR -->
+		<!-- BEGIN THEME CUSTOMIZER-->
+		<div id="theme-change" class="hidden-phone">
+			<i class="icon-cogs"></i>
+			<span class="settings">
+				<span class="text">Theme:</span>
+				<span class="colors">
+					<span class="color-default" data-style="default"></span>
+					<span class="color-gray" data-style="gray"></span>
+					<span class="color-purple" data-style="purple"></span>
+					<span class="color-navy-blue" data-style="navy-blue"></span>
+				</span>
+			</span>
+		</div>
+		<!-- END THEME CUSTOMIZER-->
 		<!-- BEGIN PAGE -->
 		<div id="main-content">
 			{{.LayoutContent}}
