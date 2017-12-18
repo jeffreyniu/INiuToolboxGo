@@ -1,23 +1,15 @@
 package contents
 
 import (
-	"github.com/astaxie/beego"
+	"INiuToolboxGo/controllers"
 )
 
+//BlogController
 type BlogController struct {
-	beego.Controller
+	controllers.MainController
 }
 
-type BlogDetailsController struct {
-	beego.Controller
-}
-
+//Get blog list
 func (c *BlogController) Get() {
-	c.Layout = "layout/layout.tpl"
 	c.TplName = "contents/blog.tpl"
-}
-
-func (c *BlogDetailsController) Get() {
-	c.Layout = "layout/layout.tpl"
-	c.TplName = "contents/blog_details.tpl"
 }

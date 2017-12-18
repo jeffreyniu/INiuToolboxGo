@@ -689,7 +689,7 @@ var App = function () {
         });
 
         var setColor = function (color) {
-            $('#style_color').attr("href", "css/style_" + color + ".css");
+            $('#style_color').attr("href", "/static/css/style_" + color + ".css");
         }
 
     }
