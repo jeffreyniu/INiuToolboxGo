@@ -65,60 +65,26 @@ Website: http://thevectorlab.net/
                         <li class="dropdown" id="header_inbox_bar">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="icon-envelope-alt"></i>
-                                <span class="badge badge-important">5</span>
+                                <span class="badge badge-important">{{.mail_msg_count}}</span>
                             </a>
                             <ul class="dropdown-menu extended inbox">
                                 <li>
-                                    <p>You have 5 new messages</p>
-                                </li>
+                                    <p>You have {{.mail_msg_count}} new messages</p>
+								</li>
+								{{range $k,$v:= .mail_msgs}}
                                 <li>
                                     <a href="#">
                                         <span class="photo"><img src="/static/img/avatar-mini.png" alt="avatar" /></span>
 									<span class="subject">
-									<span class="from">Dulal Khan</span>
-									<span class="time">Just now</span>
+									<span class="from">{{$v.Name}}</span>
+									<span class="time">{{$v.Elapsed}}</span>
 									</span>
 									<span class="message">
-									    Hello, this is an example messages please check
+									    {{$v.Msg}}
 									</span>
                                     </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="photo"><img src="/static/img/avatar-mini.png" alt="avatar" /></span>
-									<span class="subject">
-									<span class="from">Rafiqul Islam</span>
-									<span class="time">10 mins</span>
-									</span>
-									<span class="message">
-									 Hi, Mosaddek Bhai how are you ?
-									</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="photo"><img src="/static/img/avatar-mini.png" alt="avatar" /></span>
-									<span class="subject">
-									<span class="from">Sumon Ahmed</span>
-									<span class="time">3 hrs</span>
-									</span>
-									<span class="message">
-									    This is awesome dashboard templates
-									</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="photo"><img src="/static/img/avatar-mini.png" alt="avatar" /></span>
-									<span class="subject">
-									<span class="from">Dulal Khan</span>
-									<span class="time">Just now</span>
-									</span>
-									<span class="message">
-									    Hello, this is an example messages please check
-									</span>
-                                    </a>
-                                </li>
+								</li>
+								{{end}}
                                 <li>
                                     <a href="#">See all messages</a>
                                 </li>
