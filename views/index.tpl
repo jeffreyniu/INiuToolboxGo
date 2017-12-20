@@ -60,25 +60,14 @@
                     <span class="badge badge-important">3</span>
                 </a>
                 <a class="icon-btn span2" href="#">
-                    <i class="icon-bullhorn"></i>
-                    <div>Notification</div>
-                    <span class="badge badge-warning">3</span>
-                </a>
-                <a class="icon-btn span2" href="#">
                     <i class="icon-plane"></i>
                     <div>Projects</div>
                     <span class="badge badge-info">21</span>
                 </a>
-            </div>
-            <div class="row-fluid">
                 <a class="icon-btn span2" href="#">
                     <i class="icon-thumbs-up"></i>
                     <div>Feedback</div>
                     <span class="badge badge-info">2</span>
-                </a>
-                <a class="icon-btn span2" href="#">
-                    <i class="icon-wrench"></i>
-                    <div>Settings</div>
                 </a>
             </div>
         </div>
