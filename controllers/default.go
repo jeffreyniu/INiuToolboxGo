@@ -15,6 +15,7 @@ type MainController struct {
 //Init MainController
 func (c *MainController) Init(ct *context.Context, cn string, actionName string, app interface{}) {
 	c.Controller.Init(ct, cn, actionName, app)
+	c.Layout = "layout/layout.tpl"
 
 	msgs, err := models.GetMailMessages()
 	if err == nil {
@@ -28,9 +29,10 @@ func (c *MainController) Init(ct *context.Context, cn string, actionName string,
 		c.Data["noti_msgs"] = notiMsgs
 	}
 
-	c.Data["Email"] = "iniutoolbox@aliyun.com"
-
-	c.Layout = "layout/layout.tpl"
+	chatMsgs, err := models.GetChatMessages()
+	if err == nil {
+		c.Data["chat_msgs"] = chatMsgs
+	}
 }
 
 //Get MainController
