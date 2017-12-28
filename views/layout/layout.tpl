@@ -124,11 +124,16 @@ Website: http://thevectorlab.net/
                 <div class="top-nav ">
                     <ul class="nav pull-right top-menu" >
                         <!-- BEGIN SUPPORT -->
-                        <li class="dropdown mtop5">
-
-                            <a class="dropdown-toggle element" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Chat">
-                                <i class="icon-comments-alt"></i>
-                            </a>
+                        <li class="dropdown mtop5" id="header_qrcode_bar">
+                            <a class="dropdown-toggle element" data-placement="bottom" data-toggle="dropdown" href="#" data-original-title="扫码领红包">
+								<i class="icon-comments-alt"></i>
+								<span class="badge badge-important">红包</span>								
+							</a>
+							<ul class="dropdown-menu extended notification">
+								<li>
+									<img src="/static/img/qrcode/redpackage.jpg"/>
+								</li>
+							</ul>
                         </li>
                         <li class="dropdown mtop5">
                             <a class="dropdown-toggle element" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Help">
