@@ -126,7 +126,7 @@ Website: http://thevectorlab.net/
                         <!-- BEGIN SUPPORT -->
                         <li class="dropdown mtop5" id="header_qrcode_bar">
                             <a class="dropdown-toggle element" data-placement="bottom" data-toggle="dropdown" href="#" data-original-title="扫码领红包">
-								<i class="icon-comments-alt"></i>
+								<i class="icon-qrcode"></i>
 								<span class="badge badge-important">红包</span>								
 							</a>
 							<ul class="dropdown-menu extended notification">
@@ -225,7 +225,7 @@ Website: http://thevectorlab.net/
 	<!-- END CONTAINER -->
 	<!-- BEGIN FOOTER -->
 	<div id="footer">
-		&copy;2017 版权所有 / 联系站长：
+		&copy;2017-2020 版权所有 / 联系站长：
     <a class="email" href="mailto:iniutoolbox@aliyun.com">iniutoolbox@aliyun.com</a>
     <br>
     备案/许可证编号：<a href="http://www.miitbeian.gov.cn">沪ICP备17026684号</a>
