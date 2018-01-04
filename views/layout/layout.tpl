@@ -236,7 +236,7 @@ Website: http://thevectorlab.net/
 	<!-- END FOOTER -->
 	<!-- BEGIN JAVASCRIPTS -->
 	<!-- Load javascripts at bottom, this will reduce page load time -->
-  <script src="/static/js/reload.min.js"></script>
+  	<script src="/static/js/reload.min.js"></script>
 	<script src="/static/js/jquery-1.8.3.min.js"></script>
 	<script src="/static/assets/jquery-slimscroll/jquery-ui-1.9.2.custom.min.js"></script>
 	<script src="/static/assets/jquery-slimscroll/jquery.slimscroll.min.js"></script>
@@ -249,13 +249,13 @@ Website: http://thevectorlab.net/
 	<script src="/static/js/excanvas.js"></script>
 	<script src="/static/js/respond.js"></script>
 	<![endif]-->
-	<script src="/static/assets/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
+	<!--<script src="/static/assets/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
 	<script src="/static/assets/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
 	<script src="/static/assets/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
 	<script src="/static/assets/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
 	<script src="/static/assets/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
 	<script src="/static/assets/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
-	<script src="/static/assets/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>
+	<script src="/static/assets/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>-->
 	<script src="/static/assets/jquery-knob/js/jquery.knob.js"></script>
 	<script src="/static/assets/flot/jquery.flot.js"></script>
 	<script src="/static/assets/flot/jquery.flot.resize.js"></script>
