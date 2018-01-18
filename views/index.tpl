@@ -114,36 +114,6 @@
                 </div>
             </div>
             <!-- END CHAT PORTLET-->
-            <div class="row-fluid">
-                <!-- BEGIN NOTIFICATIONS PORTLET-->
-                <div class="widget">
-                    <div class="widget-title">
-                        <h4>
-                            <i class="icon-bell"></i> Notifications</h4>
-                        <span class="tools">
-                            <a href="javascript:;" class="icon-chevron-down"></a>
-                            <a href="javascript:;" class="icon-remove"></a>
-                        </span>
-                    </div>
-                    <div class="widget-body">
-                        <ul class="item-list scroller padding" data-height="365" data-always-visible="1">
-                            {{range $k,$v:= .noti_msgs}}
-                            <li>
-                                <a href="#">
-                                <span class="label"><i class="icon-{{$v.Type}}"></i></span>
-                                {{$v.Msg}}
-                                <span class="small italic">{{$v.Elapsed}}</span>
-                                </a>
-                            </li>
-                            {{end}}
-                        </ul>
-                        <div class="space5"></div>
-                        <a href="#" class="pull-right">View all notifications</a>
-                        <div class="clearfix no-top-space no-bottom-space"></div>
-                    </div>
-                </div>
-                <!-- END NOTIFICATIONS PORTLET-->
-            </div>
         </div>
 
         <div class="row-fluid">
@@ -172,22 +142,33 @@
                     <div class="widget-title">
                         <h4>
                             <i class="icon-check"></i> To Do List</h4>
-                        <span class="tools">
-                            <a href="javascript:;" class="icon-chevron-down"></a>
-                            <a href="javascript:;" class="icon-remove"></a>
-                        </span>
+                        <div class="col2">
+                            <span class="label label-default">
+                                <i class="icon-bell"></i>Default</span>
+                            <span class="label label-success">
+                                <i class="icon-bell"></i>Success</span>
+                            <span class="label label-warning">
+                                <i class="icon-bell"></i>Warning</span>
+                            <span class="label label-important">
+                                <i class="icon-bell"></i>Important</span>                  
+                            <span class="tools">
+                                <a href="javascript:;" class="icon-chevron-down"></a>
+                                <a href="javascript:;" class="icon-remove"></a>
+                            </span>
+                        </div>
                     </div>
                     <div class="widget-body">
                         <ul class="todo-list">
+                            {{range $k,$v:= .todo_msgs}}
                             <li>
                                 <div class="col1">
                                     <div class="cont">
-                                        <a href=""> Weekly Meeting.</a>
+                                        <a href=""> {{$v.Msg}}</a>
                                     </div>
                                 </div>
                                 <div class="col2">
-                                    <span class="label label-success">
-                                        <i class="icon-bell"></i>Today</span>
+                                    <span class="label label-{{$v.Type}}">
+                                        <i class="icon-bell"></i>{{$v.Date}}</span>
                                     <span class="actions">
                                         <a href="#" class="icon">
                                             <i class="icon-ok"></i>
@@ -198,215 +179,7 @@
                                     </span>
                                 </div>
                             </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <a href="">Monthly Status Update.</a>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <span class="label label-default">
-                                        <i class="icon-bell"></i>12.00PM</span>
-                                    <span class="actions">
-                                        <a href="#" class="icon">
-                                            <i class="icon-ok"></i>
-                                        </a>
-                                        <a href="#" class="icon">
-                                            <i class="icon-remove"></i>
-                                        </a>
-                                    </span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <a href="">Upgrage server OS.</a>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <span class="label label-success">
-                                        <i class="icon-bell"></i>4 March</span>
-                                    <span class="actions">
-                                        <a href="#" class="icon">
-                                            <i class="icon-ok"></i>
-                                        </a>
-                                        <a href="#" class="icon">
-                                            <i class="icon-remove"></i>
-                                        </a>
-                                    </span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <a href="">Weekly technical support report.</a>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <span class="label label-success">
-                                        <i class="icon-bell"></i>2 Jan</span>
-                                    <span class="actions">
-                                        <a href="#" class="icon">
-                                            <i class="icon-ok"></i>
-                                        </a>
-                                        <a href="#" class="icon">
-                                            <i class="icon-remove"></i>
-                                        </a>
-                                    </span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <a href=""> Project materials.</a>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <span class="label label-warning">
-                                        <i class="icon-bell"></i>09 Feb</span>
-                                    <span class="actions">
-                                        <a href="#" class="icon">
-                                            <i class="icon-ok"></i>
-                                        </a>
-                                        <a href="#" class="icon">
-                                            <i class="icon-remove"></i>
-                                        </a>
-                                    </span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <a href="">Project Status Update.</a>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <span class="label label-important">
-                                        <i class="icon-bell"></i>4.30PM</span>
-                                    <span class="actions">
-                                        <a href="#" class="icon">
-                                            <i class="icon-ok"></i>
-                                        </a>
-                                        <a href="#" class="icon">
-                                            <i class="icon-remove"></i>
-                                        </a>
-                                    </span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <a href=""> Anual Project Meeting.</a>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <span class="label label-important">
-                                        <i class="icon-bell"></i>Today</span>
-                                    <span class="actions">
-                                        <a href="#" class="icon">
-                                            <i class="icon-ok"></i>
-                                        </a>
-                                        <a href="#" class="icon">
-                                            <i class="icon-remove"></i>
-                                        </a>
-                                    </span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <a href="">Prepare project materials.</a>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <span class="label label-warning">
-                                        <i class="icon-bell"></i>3 May</span>
-                                    <span class="actions">
-                                        <a href="#" class="icon">
-                                            <i class="icon-ok"></i>
-                                        </a>
-                                        <a href="#" class="icon">
-                                            <i class="icon-remove"></i>
-                                        </a>
-                                    </span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <a href="">Update salary status.</a>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <span class="label label-reverse">
-                                        <i class="icon-bell"></i>1 June</span>
-                                    <span class="actions">
-                                        <a href="#" class="icon">
-                                            <i class="icon-ok"></i>
-                                        </a>
-                                        <a href="#" class="icon">
-                                            <i class="icon-remove"></i>
-                                        </a>
-                                    </span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <a href="">Update Task Status.</a>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <span class="label label-reverse">
-                                        <i class="icon-bell"></i>3 April</span>
-                                    <span class="actions">
-                                        <a href="#" class="icon">
-                                            <i class="icon-ok"></i>
-                                        </a>
-                                        <a href="#" class="icon">
-                                            <i class="icon-remove"></i>
-                                        </a>
-                                    </span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <a href="">Project Status Report.</a>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <span class="label label-important">
-                                        <i class="icon-bell"></i>10.00PM</span>
-                                    <span class="actions">
-                                        <a href="#" class="icon">
-                                            <i class="icon-ok"></i>
-                                        </a>
-                                        <a href="#" class="icon">
-                                            <i class="icon-remove"></i>
-                                        </a>
-                                    </span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <a href="">Update project rates.</a>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <span class="label label-reverse">
-                                        <i class="icon-bell"></i>28 April</span>
-                                    <span class="actions">
-                                        <a href="#" class="icon">
-                                            <i class="icon-ok"></i>
-                                        </a>
-                                        <a href="#" class="icon">
-                                            <i class="icon-remove"></i>
-                                        </a>
-                                    </span>
-                                </div>
-                            </li>
+                            {{end}}                   
                         </ul>
                         <a href="#" class="pull-right">View all todo list</a>
                         <div class="clearfix"></div>

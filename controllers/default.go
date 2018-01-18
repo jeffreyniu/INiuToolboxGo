@@ -23,15 +23,14 @@ func (c *MainController) Init(ct *context.Context, cn string, actionName string,
 		c.Data["mail_msgs"] = msgs
 	}
 
-	notiMsgs, err := models.GetNotiMessages()
-	if err == nil {
-		c.Data["noti_msg_count"] = len(notiMsgs)
-		c.Data["noti_msgs"] = notiMsgs
-	}
-
 	chatMsgs, err := models.GetChatMessages()
 	if err == nil {
 		c.Data["chat_msgs"] = chatMsgs
+	}
+
+	todoMsgs, err := models.GetTodoMessages()
+	if err == nil {
+		c.Data["todo_msgs"] = todoMsgs
 	}
 }
 

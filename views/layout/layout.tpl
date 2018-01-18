@@ -8,8 +8,11 @@ Website: http://thevectorlab.net/
 
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
 <!-- BEGIN HEAD -->
+
 <head>
 	<meta charset="utf-8" />
 	<title>i工具箱</title>
@@ -30,6 +33,7 @@ Website: http://thevectorlab.net/
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
+
 <body class="fixed-top">
 	<!-- BEGIN HEADER -->
 	<div id="header" class="navbar navbar-inverse navbar-fixed-top">
@@ -38,120 +42,67 @@ Website: http://thevectorlab.net/
 			<div class="container-fluid">
 				<!-- BEGIN LOGO -->
 				<a class="brand" href="/">
-				<div style="width:110px;height:50px;position:relative;float:left;display:inline-block;top:5px;">
-                    <img src="/static/img/logo/logo3.png"/>     
-                </div>   
+					<div style="width:110px;height:50px;position:relative;float:left;display:inline-block;top:5px;">
+						<img src="/static/img/logo/logo3.png" />
+					</div>
 				</a>
 				<!-- END LOGO -->
 				<!-- BEGIN RESPONSIVE MENU TOGGLER -->
 				<a class="btn btn-navbar collapsed" id="main_menu_trigger" data-toggle="collapse" data-target=".nav-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="arrow"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="arrow"></span>
 				</a>
 				<!-- END RESPONSIVE MENU TOGGLER -->
 				<div id="top_menu" class="nav notify-row">
-                    <!-- BEGIN NOTIFICATION -->
-					<ul class="nav top-menu">						
-                        <!-- BEGIN SETTINGS -->
-                        <li class="dropdown">
-                            <a class="dropdown-toggle element" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Settings">
-                                <i class="icon-cog"></i>
-                            </a>
-                        </li>
+					<ul class="nav top-menu">
+						<!-- BEGIN SETTINGS -->
+						<li class="dropdown">
+							<a class="dropdown-toggle element" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Settings">
+								<i class="icon-cog"></i>
+							</a>
+						</li>
 						<!-- END SETTINGS -->
-                        <!-- BEGIN INBOX DROPDOWN -->
-                        <li class="dropdown" id="header_inbox_bar">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="icon-envelope-alt"></i>
-                                <span class="badge badge-important">{{.mail_msg_count}}</span>
-                            </a>
-                            <ul class="dropdown-menu extended inbox">
-                                <li>
-                                    <p>You have {{.mail_msg_count}} new messages</p>
-								</li>
-								{{range $k,$v:= .mail_msgs}}
-                                <li>
-                                    <a href="#">
-                                        <span class="photo"><img src="/static/img/avatar-mini.png" alt="avatar" /></span>
-									<span class="subject">
-									<span class="from">{{$v.Name}}</span>
-									<span class="time">{{$v.Elapsed}}</span>
-									</span>
-									<span class="message">
-									    {{$v.Msg}}
-									</span>
-                                    </a>
-								</li>
-								{{end}}
-                                <li>
-                                    <a href="#">See all messages</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- END INBOX DROPDOWN -->
-						<!-- BEGIN NOTIFICATION DROPDOWN -->
-						<li class="dropdown" id="header_notification_bar">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-
-							<i class="icon-bell-alt"></i>
-							<span class="badge badge-warning">{{.noti_msg_count}}</span>
+						<!-- BEGIN SUPPORT -->
+						<li class="dropdown mtop5" id="header_qrcode_bar">
+							<a class="dropdown-toggle element" data-placement="bottom" data-toggle="dropdown" href="#" data-original-title="扫码领红包">
+								<i class="icon-qrcode"></i>
+								<span class="badge badge-important">红包</span>
 							</a>
 							<ul class="dropdown-menu extended notification">
 								<li>
-									<p>You have {{.noti_msg_count}} new notifications</p>
-								</li>
-								{{range $k,$v:= .noti_msgs}}
-								<li>
-									<a href="#">
-									<span class="label"><i class="icon-{{$v.Type}}"></i></span>
-									{{$v.Msg}}
-									<span class="small italic">{{$v.Elapsed}}</span>
-									</a>
-								</li>
-								{{end}}
-								<li>
-									<a href="#">See all notifications</a>
+									<img src="/static/img/qrcode/redpackage.jpg" />
 								</li>
 							</ul>
 						</li>
-						<!-- END NOTIFICATION DROPDOWN -->
-
-					</ul>
-                </div>
-                    <!-- END  NOTIFICATION -->
-                <div class="top-nav ">
-                    <ul class="nav pull-right top-menu" >
-                        <!-- BEGIN SUPPORT -->
-                        <li class="dropdown mtop5" id="header_qrcode_bar">
-                            <a class="dropdown-toggle element" data-placement="bottom" data-toggle="dropdown" href="#" data-original-title="扫码领红包">
-								<i class="icon-qrcode"></i>
-								<span class="badge badge-important">红包</span>								
+						<li class="dropdown mtop5">
+							<a class="dropdown-toggle element" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Help">
+								<i class="icon-headphones"></i>
 							</a>
-							<ul class="dropdown-menu extended notification">
-								<li>
-									<img src="/static/img/qrcode/redpackage.jpg"/>
-								</li>
-							</ul>
-                        </li>
-                        <li class="dropdown mtop5">
-                            <a class="dropdown-toggle element" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Help">
-                                <i class="icon-headphones"></i>
-                            </a>
-                        </li>
-                        <!-- END SUPPORT -->
+						</li>
+						<!-- END SUPPORT -->
+					</ul>
+				</div>
+				<div class="top-nav ">
+					<ul class="nav pull-right top-menu">
 						<!-- BEGIN USER LOGIN DROPDOWN -->
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="/static/img/avatar1_small.jpg" alt="">
-                                <span class="username">Mosaddek Hossain</span>
-							<b class="caret"></b>
+								<img src="/static/img/avatar1_small.jpg" alt="">
+								<span class="username">Mosaddek Hossain</span>
+								<b class="caret"></b>
 							</a>
 							<ul class="dropdown-menu">
-								<li><a href="#"><i class="icon-user"></i> My Profile</a></li>
+								<li>
+									<a href="#">
+										<i class="icon-user"></i> My Profile</a>
+								</li>
 								<li class="divider"></li>
-								<li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+								<li>
+									<a href="login.html">
+										<i class="icon-key"></i> Log Out</a>
+								</li>
 							</ul>
 						</li>
 						<!-- END USER LOGIN DROPDOWN -->
@@ -182,21 +133,29 @@ Website: http://thevectorlab.net/
 			<ul class="sidebar-menu">
 				<li class="has-sub active">
 					<a href="javascript:;" class="">
-					    <span class="icon-box"> <i class="icon-dashboard"></i></span> Dashboard
-                        <span class="arrow"></span>
-                    </a>
-                    <ul class="sub">
-                        <li class="active"><a class="" href="/">Dashboard</a></li>
-                    </ul>
-				</li>				
+						<span class="icon-box">
+							<i class="icon-dashboard"></i>
+						</span> Dashboard
+						<span class="arrow"></span>
+					</a>
+					<ul class="sub">
+						<li class="active">
+							<a class="" href="/">Dashboard</a>
+						</li>
+					</ul>
+				</li>
 				<li class="has-sub">
 					<a href="javascript:;" class="">
-					<span class="icon-box"><i class="icon-file-alt"></i></span> Contents
-					<span class="arrow"></span>
+						<span class="icon-box">
+							<i class="icon-file-alt"></i>
+						</span> Contents
+						<span class="arrow"></span>
 					</a>
-                    <ul class="sub">
-                        <li><a class="" href="/contents/blog">Blog</a></li>               
-                    </ul>
+					<ul class="sub">
+						<li>
+							<a class="" href="/contents/blog">Blog</a>
+						</li>
+					</ul>
 				</li>
 			</ul>
 			<!-- END SIDEBAR MENU -->
@@ -226,17 +185,19 @@ Website: http://thevectorlab.net/
 	<!-- BEGIN FOOTER -->
 	<div id="footer">
 		&copy;2017-2020 版权所有 / 联系站长：
-    <a class="email" href="mailto:iniutoolbox@aliyun.com">iniutoolbox@aliyun.com</a>
-    <br>
-    备案/许可证编号：<a href="http://www.miitbeian.gov.cn">沪ICP备17026684号</a>
+		<a class="email" href="mailto:iniutoolbox@aliyun.com">iniutoolbox@aliyun.com</a>
+		<br> 备案/许可证编号：
+		<a href="http://www.miitbeian.gov.cn">沪ICP备17026684号</a>
 		<div class="span pull-right">
-			<span class="go-top"><i class="icon-arrow-up"></i></span>
+			<span class="go-top">
+				<i class="icon-arrow-up"></i>
+			</span>
 		</div>
 	</div>
 	<!-- END FOOTER -->
 	<!-- BEGIN JAVASCRIPTS -->
 	<!-- Load javascripts at bottom, this will reduce page load time -->
-  	<script src="/static/js/reload.min.js"></script>
+	<script src="/static/js/reload.min.js"></script>
 	<script src="/static/js/jquery-1.8.3.min.js"></script>
 	<script src="/static/assets/jquery-slimscroll/jquery-ui-1.9.2.custom.min.js"></script>
 	<script src="/static/assets/jquery-slimscroll/jquery.slimscroll.min.js"></script>
@@ -260,15 +221,15 @@ Website: http://thevectorlab.net/
 	<script src="/static/assets/flot/jquery.flot.js"></script>
 	<script src="/static/assets/flot/jquery.flot.resize.js"></script>
 
-    <script src="/static/assets/flot/jquery.flot.pie.js"></script>
-    <script src="/static/assets/flot/jquery.flot.stack.js"></script>
-    <script src="/static/assets/flot/jquery.flot.crosshair.js"></script>
+	<script src="/static/assets/flot/jquery.flot.pie.js"></script>
+	<script src="/static/assets/flot/jquery.flot.stack.js"></script>
+	<script src="/static/assets/flot/jquery.flot.crosshair.js"></script>
 
 	<script src="/static/js/jquery.peity.min.js"></script>
 	<script type="text/javascript" src="/static/assets/uniform/jquery.uniform.min.js"></script>
 	<script src="/static/js/scripts.js"></script>
 	<script>
-		jQuery(document).ready(function() {
+		jQuery(document).ready(function () {
 			// initiate layout and plugins
 			App.setMainPage(true);
 			App.init();
@@ -277,4 +238,5 @@ Website: http://thevectorlab.net/
 	<!-- END JAVASCRIPTS -->
 </body>
 <!-- END BODY -->
+
 </html>
