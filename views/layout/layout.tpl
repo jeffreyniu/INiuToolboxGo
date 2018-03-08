@@ -29,7 +29,8 @@ Website: http://thevectorlab.net/
 	<link href="/static/assets/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" href="/static/assets/uniform/css/uniform.default.css" />
 	<link href="/static/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
-	<link href="/static/assets/jqvmap/jqvmap/jqvmap.css" media="screen" rel="stylesheet" type="text/css" />
+
+	<link rel="stylesheet" href="/static/assets/jslider/bin/jquery.slider.min.css" type="text/css">
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -42,7 +43,7 @@ Website: http://thevectorlab.net/
 			<div class="container-fluid">
 				<!-- BEGIN LOGO -->
 				<a class="brand" href="/">
-					<div style="width:110px;height:50px;position:relative;float:left;display:inline-block;top:5px;">
+					<div style="width:110px;height:50px;position:relative;float:left;top:5px;">
 						<img src="/static/img/logo/logo3.png" />
 					</div>
 				</a>
@@ -205,18 +206,15 @@ Website: http://thevectorlab.net/
 	<script src="/static/assets/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/static/js/jquery.blockui.js"></script>
 	<script src="/static/js/jquery.cookie.js"></script>
+	<script src="/static/js/jquery.pulsate.min.js"></script>
 	<!-- ie8 fixes -->
 	<!--[if lt IE 9]>
 	<script src="/static/js/excanvas.js"></script>
 	<script src="/static/js/respond.js"></script>
 	<![endif]-->
-	<!--<script src="/static/assets/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
-	<script src="/static/assets/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
-	<script src="/static/assets/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
-	<script src="/static/assets/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
-	<script src="/static/assets/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
-	<script src="/static/assets/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
-	<script src="/static/assets/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>-->
+	
+	<script src="/static/assets/jslider/bin/jquery.slider.min.js"></script>
+	
 	<script src="/static/assets/jquery-knob/js/jquery.knob.js"></script>
 	<script src="/static/assets/flot/jquery.flot.js"></script>
 	<script src="/static/assets/flot/jquery.flot.resize.js"></script>

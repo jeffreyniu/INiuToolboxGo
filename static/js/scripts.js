@@ -286,6 +286,7 @@ var App = function () {
         });
     }
 
+    //obsolete
     var handleClockfaceTimePickers = function () {
 
         if (!jQuery().clockface) {
@@ -345,135 +346,6 @@ var App = function () {
                 sub.slideDown(200);
             }
         });
-    }
-
-    var handleWidgetTools = function () {
-        jQuery('.widget .tools .icon-remove').click(function () {
-            jQuery(this).parents(".widget").parent().remove();
-        });
-
-        jQuery('.widget .tools .icon-refresh').click(function () {
-            var el = jQuery(this).parents(".widget");
-            App.blockUI(el);
-            window.setTimeout(function () {
-                App.unblockUI(el);
-            }, 1000);
-        });
-
-        jQuery('.widget .tools .icon-chevron-down, .widget .tools .icon-chevron-up').click(function () {
-            var el = jQuery(this).parents(".widget").children(".widget-body");
-            if (jQuery(this).hasClass("icon-chevron-down")) {
-                jQuery(this).removeClass("icon-chevron-down").addClass("icon-chevron-up");
-                el.slideUp(200);
-            } else {
-                jQuery(this).removeClass("icon-chevron-up").addClass("icon-chevron-down");
-                el.slideDown(200);
-            }
-        });
-    }
-
-    var handleDashboardCharts = function () {
-
-        // used by plot functions
-        var data = [];
-        var totalPoints = 200;
-
-        // random data generator for plot charts
-        function getRandomData() {
-            if (data.length > 0) data = data.slice(1);
-            // do a random walk
-            while (data.length < totalPoints) {
-                var prev = data.length > 0 ? data[data.length - 1] : 50;
-                var y = prev + Math.random() * 10 - 5;
-                if (y < 0) y = 0;
-                if (y > 100) y = 100;
-                data.push(y);
-            }
-            // zip the generated y values with the x values
-            var res = [];
-            for (var i = 0; i < data.length; ++i) res.push([i, data[i]])
-            return res;
-        }
-
-        if (!jQuery.plot) {
-            return;
-        }
-
-        function randValue() {
-            return (Math.floor(Math.random() * (1 + 40 - 20))) + 20;
-        }
-
-
-        function showTooltip(x, y, contents) {
-            $('<div id="tooltip">' + contents + '</div>').css({
-                position: 'absolute',
-                display: 'none',
-                top: y + 5,
-                left: x + 15,
-                border: '1px solid #333',
-                padding: '4px',
-                color: '#fff',
-                'border-radius': '3px',
-                'background-color': '#333',
-                opacity: 0.80
-            }).appendTo("body").fadeIn(200);
-        }
-
-        //server load
-        var options = {
-            series: {
-                shadowSize: 1
-            },
-            lines: {
-                show: true,
-                lineWidth: 0.5,
-                fill: true,
-                fillColor: {
-                    colors: [{
-                        opacity: 0.1
-                    }, {
-                        opacity: 1
-                    }]
-                }
-            },
-            yaxis: {
-                min: 0,
-                max: 100,
-                tickFormatter: function (v) {
-                    return v + "%";
-                }
-            },
-            xaxis: {
-                show: false
-            },
-            colors: ["#A5D16C"],
-            grid: {
-                tickColor: "#eaeaea",
-                borderWidth: 0
-            }
-        };
-    }
-
-    
-
-    var handleFancyBox = function () {
-        if (!jQuery().fancybox) {
-            return;
-        }
-
-        if (jQuery(".fancybox-button").size() > 0) {
-            jQuery(".fancybox-button").fancybox({
-                groupAttr: 'data-rel',
-                prevEffect: 'none',
-                nextEffect: 'none',
-                closeBtn: true,
-                helpers: {
-                    title: {
-                        type: 'inside'
-                    }
-                }
-            });
-        }
     }
 
     var handleLoginForm = function () {
@@ -572,124 +444,32 @@ var App = function () {
         }
 
         if (jQuery().pulsate) {
-            jQuery('#pulsate-regular').pulsate({
-                color: "#bf1c56"
-            });
-
-            jQuery('#pulsate-once').click(function () {
-                $(this).pulsate({
-                    color: "#399bc3",
-                    repeat: false
-                });
-            });
-
-            jQuery('#pulsate-hover').pulsate({
-                color: "#5ebf5e",
-                repeat: false,
-                onHover: true
-            });
-
-            jQuery('#pulsate-crazy').click(function () {
-                $(this).pulsate({
-                    color: "#fdbe41",
-                    reach: 50,
-                    repeat: 10,
-                    speed: 100,
-                    glow: true
-                });
+            jQuery('.pulsate-regular').pulsate({
+                color: "#bf1c56",
+                reach:10
             });
         }
     }
 
-    var handlePeity = function () {
-        if (!jQuery().peity) {
+    var handleSlider = function () {
+        if (!jQuery().slider) {
             return;
         }
 
-        if (jQuery.browser.msie && jQuery.browser.version.substr(0, 2) <= 8) { // ie7&ie8
-            return;
-        }
-
-        $(".stat.bad .line-chart").peity("line", {
-            height: 20,
-            width: 50,
-            colour: "#d12610",
-            strokeColour: "#666"
-        }).show();
-
-        $(".stat.bad .bar-chart").peity("bar", {
-            height: 20,
-            width: 50,
-            colour: "#d12610",
-            strokeColour: "#666"
-        }).show();
-
-        $(".stat.ok .line-chart").peity("line", {
-            height: 20,
-            width: 50,
-            colour: "#37b7f3",
-            strokeColour: "#757575"
-        }).show();
-
-        $(".stat.ok .bar-chart").peity("bar", {
-            height: 20,
-            width: 50,
-            colour: "#37b7f3"
-        }).show();
-
-        $(".stat.good .line-chart").peity("line", {
-            height: 20,
-            width: 50,
-            colour: "#52e136"
-        }).show();
-
-        $(".stat.good .bar-chart").peity("bar", {
-            height: 20,
-            width: 50,
-            colour: "#52e136"
-        }).show();
-        //
-
-        $(".stat.bad.huge .line-chart").peity("line", {
-            height: 20,
-            width: 40,
-            colour: "#d12610",
-            strokeColour: "#666"
-        }).show();
-
-        $(".stat.bad.huge .bar-chart").peity("bar", {
-            height: 20,
-            width: 40,
-            colour: "#d12610",
-            strokeColour: "#666"
-        }).show();
-
-        $(".stat.ok.huge .line-chart").peity("line", {
-            height: 20,
-            width: 40,
-            colour: "#37b7f3",
-            strokeColour: "#757575"
-        }).show();
-
-        $(".stat.ok.huge .bar-chart").peity("bar", {
-            height: 20,
-            width: 40,
-            colour: "#37b7f3"
-        }).show();
-
-        $(".stat.good.huge .line-chart").peity("line", {
-            height: 20,
-            width: 40,
-            colour: "#52e136"
-        }).show();
-
-        $(".stat.good.huge .bar-chart").peity("bar", {
-            height: 20,
-            width: 40,
-            colour: "#52e136"
-        }).show();
+        if (jQuery().slider) {
+            $('.slider').each(function (index,item) {
+                $(this).slider({
+                    from: 0,
+                    to: 100,
+                    //scale: [0, '|', 25, '|' , '50', '|', 75, '|', 100],
+                    step: 1,
+                    round: 1,
+                    format: { format: '##', locale: 'de' },
+                    dimension: '&nbsp;%'
+                })
+            });
+        }      
     }
-
     var handleDeviceWidth = function () {
         function fixWidth(e) {
             var winHeight = $(window).height();
@@ -747,105 +527,11 @@ var App = function () {
         });
     }
 
-    var handleGritterNotifications = function () {
-        if (!jQuery.gritter) {
-            return;
-        }
-        $('#gritter-sticky').click(function () {
-            var unique_id = $.gritter.add({
-                // (string | mandatory) the heading of the notification
-                title: 'This is a sticky notice!',
-                // (string | mandatory) the text inside the notification
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.',
-                // (string | optional) the image to display on the left
-                image: '/static/img/avatar-mini.png',
-                // (bool | optional) if you want it to fade out on its own or just sit there
-                sticky: true,
-                // (int | optional) the time you want it to be alive for before fading out
-                time: '',
-                // (string | optional) the class name you want to apply to that specific message
-                class_name: 'my-sticky-class'
-            });
-            return false;
-        });
-
-        $('#gritter-regular').click(function () {
-
-            $.gritter.add({
-                // (string | mandatory) the heading of the notification
-                title: 'This is a regular notice!',
-                // (string | mandatory) the text inside the notification
-                text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.',
-                // (string | optional) the image to display on the left
-                image: '/static/img/avatar-mini.png',
-                // (bool | optional) if you want it to fade out on its own or just sit there
-                sticky: false,
-                // (int | optional) the time you want it to be alive for before fading out
-                time: ''
-            });
-
-            return false;
-
-        });
-
-        $('#gritter-max').click(function () {
-
-            $.gritter.add({
-                // (string | mandatory) the heading of the notification
-                title: 'This is a notice with a max of 3 on screen at one time!',
-                // (string | mandatory) the text inside the notification
-                text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.',
-                // (string | optional) the image to display on the left
-                image: '/static/img/avatar-mini.png',
-                // (bool | optional) if you want it to fade out on its own or just sit there
-                sticky: false,
-                // (function) before the gritter notice is opened
-                before_open: function () {
-                    if ($('.gritter-item-wrapper').length == 3) {
-                        // Returning false prevents a new gritter from opening
-                        return false;
-                    }
-                }
-            });
-            return false;
-        });
-
-        $('#gritter-without-image').click(function () {
-            $.gritter.add({
-                // (string | mandatory) the heading of the notification
-                title: 'This is a notice without an image!',
-                // (string | mandatory) the text inside the notification
-                text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.'
-            });
-
-            return false;
-        });
-
-        $('#gritter-light').click(function () {
-
-            $.gritter.add({
-                // (string | mandatory) the heading of the notification
-                title: 'This is a light notification',
-                // (string | mandatory) the text inside the notification
-                text: 'Just add a "gritter-light" class_name to your $.gritter.add or globally to $.gritter.options.class_name',
-                class_name: 'gritter-light'
-            });
-
-            return false;
-        });
-
-        $("#gritter-remove-all").click(function () {
-
-            $.gritter.removeAll();
-            return false;
-
-        });
-    }
-
+    //obsolete
     var handleTooltip = function () {
         jQuery('.tooltips').tooltip();
     }
-
+    //obsolete
     var handlePopover = function () {
         jQuery('.popovers').popover();
     }
@@ -869,320 +555,6 @@ var App = function () {
         }
     }
 
-    var handleWysihtml5 = function () {
-        if (!jQuery().wysihtml5) {
-            return;
-        }
-
-        if ($('.wysihtml5').size() > 0) {
-            $('.wysihtml5').wysihtml5();
-        }
-    }
-
-    var handleToggleButtons = function () {
-        if (!jQuery().toggleButtons) {
-            return;
-        }
-        $('.basic-toggle-button').toggleButtons();
-        $('.text-toggle-button').toggleButtons({
-            width: 200,
-            label: {
-                enabled: "Lorem Ipsum",
-                disabled: "Dolor Sit"
-            }
-        });
-        $('.danger-toggle-button').toggleButtons({
-            style: {
-                // Accepted values ["primary", "danger", "info", "success", "warning"] or nothing
-                enabled: "danger",
-                disabled: "info"
-            }
-        });
-        $('.info-toggle-button').toggleButtons({
-            style: {
-                enabled: "info",
-                disabled: ""
-            }
-        });
-        $('.success-toggle-button').toggleButtons({
-            style: {
-                enabled: "success",
-                disabled: "danger"
-            }
-        });
-        $('.warning-toggle-button').toggleButtons({
-            style: {
-                enabled: "warning",
-                disabled: "success"
-            }
-        });
-
-        $('.height-toggle-button').toggleButtons({
-            height: 100,
-            font: {
-                'line-height': '100px',
-                'font-size': '20px',
-                'font-style': 'italic'
-            }
-        });
-
-        $('.not-animated-toggle-button').toggleButtons({
-            animated: false
-        });
-
-        $('.transition-value-toggle-button').toggleButtons({
-            transitionspeed: 1 // default value: 0.05
-        });
-
-    }
-
-    var handleTables = function () {
-        if (!jQuery().dataTable) {
-            return;
-        }
-
-        // begin first table
-        $('#sample_1').dataTable({
-            "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-            "sPaginationType": "bootstrap",
-            "oLanguage": {
-                "sLengthMenu": "_MENU_ records per page",
-                "oPaginate": {
-                    "sPrevious": "Prev",
-                    "sNext": "Next"
-                }
-            },
-            "aoColumnDefs": [{
-                'bSortable': false,
-                'aTargets': [0]
-            }]
-        });
-
-        jQuery('#sample_1 .group-checkable').change(function () {
-            var set = jQuery(this).attr("data-set");
-            var checked = jQuery(this).is(":checked");
-            jQuery(set).each(function () {
-                if (checked) {
-                    $(this).attr("checked", true);
-                } else {
-                    $(this).attr("checked", false);
-                }
-            });
-            jQuery.uniform.update(set);
-        });
-
-        jQuery('#sample_1_wrapper .dataTables_filter input').addClass("input-medium"); // modify table search input
-        jQuery('#sample_1_wrapper .dataTables_length select').addClass("input-mini"); // modify table per page dropdown
-
-        // begin second table
-        $('#sample_2').dataTable({
-            "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-            "sPaginationType": "bootstrap",
-            "oLanguage": {
-                "sLengthMenu": "_MENU_ per page",
-                "oPaginate": {
-                    "sPrevious": "Prev",
-                    "sNext": "Next"
-                }
-            },
-            "aoColumnDefs": [{
-                'bSortable': false,
-                'aTargets': [0]
-            }]
-        });
-
-        jQuery('#sample_2 .group-checkable').change(function () {
-            var set = jQuery(this).attr("data-set");
-            var checked = jQuery(this).is(":checked");
-            jQuery(set).each(function () {
-                if (checked) {
-                    $(this).attr("checked", true);
-                } else {
-                    $(this).attr("checked", false);
-                }
-            });
-            jQuery.uniform.update(set);
-        });
-
-        jQuery('#sample_2_wrapper .dataTables_filter input').addClass("input-small"); // modify table search input
-        jQuery('#sample_2_wrapper .dataTables_length select').addClass("input-mini"); // modify table per page dropdown
-
-        // begin: third table
-        $('#sample_3').dataTable({
-            "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-            "sPaginationType": "bootstrap",
-            "oLanguage": {
-                "sLengthMenu": "_MENU_ per page",
-                "oPaginate": {
-                    "sPrevious": "Prev",
-                    "sNext": "Next"
-                }
-            },
-            "aoColumnDefs": [{
-                'bSortable': false,
-                'aTargets': [0]
-            }]
-        });
-
-        jQuery('#sample_3 .group-checkable').change(function () {
-            var set = jQuery(this).attr("data-set");
-            var checked = jQuery(this).is(":checked");
-            jQuery(set).each(function () {
-                if (checked) {
-                    $(this).attr("checked", true);
-                } else {
-                    $(this).attr("checked", false);
-                }
-            });
-            jQuery.uniform.update(set);
-        });
-
-        jQuery('#sample_3_wrapper .dataTables_filter input').addClass("input-small"); // modify table search input
-        jQuery('#sample_3_wrapper .dataTables_length select').addClass("input-mini"); // modify table per page dropdown
-    }
-
-    var handleDateTimePickers = function () {
-
-        if (!jQuery().daterangepicker) {
-            return;
-        }
-
-        $('.date-range').daterangepicker();
-
-        $('#dashboard-report-range').daterangepicker({
-            ranges: {
-                'Today': ['today', 'today'],
-                'Yesterday': ['yesterday', 'yesterday'],
-                'Last 7 Days': [Date.today().add({
-                    days: -6
-                }), 'today'],
-                'Last 30 Days': [Date.today().add({
-                    days: -29
-                }), 'today'],
-                'This Month': [Date.today().moveToFirstDayOfMonth(), Date.today().moveToLastDayOfMonth()],
-                'Last Month': [Date.today().moveToFirstDayOfMonth().add({
-                    months: -1
-                }), Date.today().moveToFirstDayOfMonth().add({
-                    days: -1
-                })]
-            },
-            opens: 'left',
-            format: 'MM/dd/yyyy',
-            separator: ' to ',
-            startDate: Date.today().add({
-                days: -29
-            }),
-            endDate: Date.today(),
-            minDate: '01/01/2012',
-            maxDate: '12/31/2014',
-            locale: {
-                applyLabel: 'Submit',
-                fromLabel: 'From',
-                toLabel: 'To',
-                customRangeLabel: 'Custom Range',
-                daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-                monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                firstDay: 1
-            },
-            showWeekNumbers: true,
-            buttonClasses: ['btn-danger']
-        },
-
-        function (start, end) {
-            App.blockUI(jQuery("#page"));
-            setTimeout(function () {
-                App.unblockUI(jQuery("#page"));
-                $.gritter.add({
-                    title: 'Dashboard',
-                    text: 'Dashboard date range updated.'
-                });
-                App.scrollTo();
-            }, 1000);
-            $('#dashboard-report-range span').html(start.toString('MMMM d, yyyy') + ' - ' + end.toString('MMMM d, yyyy'));
-
-        });
-
-        $('#dashboard-report-range span').html(Date.today().add({
-            days: -29
-        }).toString('MMMM d, yyyy') + ' - ' + Date.today().toString('MMMM d, yyyy'));
-
-        $('#form-date-range').daterangepicker({
-            ranges: {
-                'Today': ['today', 'today'],
-                'Yesterday': ['yesterday', 'yesterday'],
-                'Last 7 Days': [Date.today().add({
-                    days: -6
-                }), 'today'],
-                'Last 30 Days': [Date.today().add({
-                    days: -29
-                }), 'today'],
-                'This Month': [Date.today().moveToFirstDayOfMonth(), Date.today().moveToLastDayOfMonth()],
-                'Last Month': [Date.today().moveToFirstDayOfMonth().add({
-                    months: -1
-                }), Date.today().moveToFirstDayOfMonth().add({
-                    days: -1
-                })]
-            },
-            opens: 'right',
-            format: 'MM/dd/yyyy',
-            separator: ' to ',
-            startDate: Date.today().add({
-                days: -29
-            }),
-            endDate: Date.today(),
-            minDate: '01/01/2012',
-            maxDate: '12/31/2014',
-            locale: {
-                applyLabel: 'Submit',
-                fromLabel: 'From',
-                toLabel: 'To',
-                customRangeLabel: 'Custom Range',
-                daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-                monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                firstDay: 1
-            },
-            showWeekNumbers: true,
-            buttonClasses: ['btn-danger']
-        },
-
-        function (start, end) {
-            $('#form-date-range span').html(start.toString('MMMM d, yyyy') + ' - ' + end.toString('MMMM d, yyyy'));
-        });
-
-        $('#form-date-range span').html(Date.today().add({
-            days: -29
-        }).toString('MMMM d, yyyy') + ' - ' + Date.today().toString('MMMM d, yyyy'));
-
-
-        if (!jQuery().datepicker || !jQuery().timepicker) {
-            return;
-        }
-        $('.date-picker').datepicker();
-
-        $('.timepicker-default').timepicker();
-
-        $('.timepicker-24').timepicker({
-            minuteStep: 1,
-            showSeconds: true,
-            showMeridian: false
-        });
-
-    }
-
-    var handleColorPicker = function () {
-        if (!jQuery().colorpicker) {
-            return;
-        }
-        $('.colorpicker-default').colorpicker({
-            format: 'hex'
-        });
-        $('.colorpicker-rgba').colorpicker();
-    }
-
-    var handleAccordions = function () {
-        $(".accordion").collapse().height('auto');
-    }
-
     var handleScrollers = function () {
         if (!jQuery().slimScroll) {
             return;
@@ -1196,101 +568,6 @@ var App = function () {
                 railVisible: ($(this).attr("data-rail-visible") == "1" ? true : false),
                 disableFadeOut: true
             });
-        });
-    }
-
-    var handleFormWizards = function () {
-        if (!jQuery().bootstrapWizard) {
-            return;
-        }
-
-        $('#form_wizard_1').bootstrapWizard({
-            'nextSelector': '.button-next',
-            'previousSelector': '.button-previous',
-            onTabClick: function (tab, navigation, index) {
-                alert('on tab click disabled');
-                return false;
-            },
-            onNext: function (tab, navigation, index) {
-                var total = navigation.find('li').length;
-                var current = index + 1;
-                // set wizard title
-                $('.step-title', $('#form_wizard_1')).text('Step ' + (index + 1) + ' of ' + total);
-                // set done steps
-                jQuery('li', $('#form_wizard_1')).removeClass("done");
-                var li_list = navigation.find('li');
-                for (var i = 0; i < index; i++) {
-                    jQuery(li_list[i]).addClass("done");
-                }
-
-                if (current == 1) {
-                    $('#form_wizard_1').find('.button-previous').hide();
-                } else {
-                    $('#form_wizard_1').find('.button-previous').show();
-                }
-
-                if (current >= total) {
-                    $('#form_wizard_1').find('.button-next').hide();
-                    $('#form_wizard_1').find('.button-submit').show();
-                } else {
-                    $('#form_wizard_1').find('.button-next').show();
-                    $('#form_wizard_1').find('.button-submit').hide();
-                }
-                App.scrollTo($('.page-title'));
-            },
-            onPrevious: function (tab, navigation, index) {
-                var total = navigation.find('li').length;
-                var current = index + 1;
-                // set wizard title
-                $('.step-title', $('#form_wizard_1')).text('Step ' + (index + 1) + ' of ' + total);
-                // set done steps
-                jQuery('li', $('#form_wizard_1')).removeClass("done");
-                var li_list = navigation.find('li');
-                for (var i = 0; i < index; i++) {
-                    jQuery(li_list[i]).addClass("done");
-                }
-
-                if (current == 1) {
-                    $('#form_wizard_1').find('.button-previous').hide();
-                } else {
-                    $('#form_wizard_1').find('.button-previous').show();
-                }
-
-                if (current >= total) {
-                    $('#form_wizard_1').find('.button-next').hide();
-                    $('#form_wizard_1').find('.button-submit').show();
-                } else {
-                    $('#form_wizard_1').find('.button-next').show();
-                    $('#form_wizard_1').find('.button-submit').hide();
-                }
-
-                App.scrollTo($('.page-title'));
-            },
-            onTabShow: function (tab, navigation, index) {
-                var total = navigation.find('li').length;
-                var current = index + 1;
-                var $percent = (current / total) * 100;
-                $('#form_wizard_1').find('.bar').css({
-                    width: $percent + '%'
-                });
-            }
-        });
-
-        $('#form_wizard_1').find('.button-previous').hide();
-        $('#form_wizard_1 .button-submit').click(function () {
-            alert('Finished!');
-        }).hide();
-    }
-
-    var handleTagsInput = function () {
-        if (!jQuery().tagsInput) {
-            return;
-        }
-        $('#tags_1').tagsInput({
-            width: 'auto'
-        });
-        $('#tags_2').tagsInput({
-            width: 240
         });
     }
 
@@ -1375,7 +652,7 @@ var App = function () {
             handleChoosenSelect(); // handles bootstrap chosen dropdowns
 
             if (isMainPage) {
-                handleDashboardCharts(); // handles plot charts for main page
+                //handleDashboardCharts(); // handles plot charts for main page
                 handleDashboardCalendar(); // handles full calendar for main page
                 handleChat() // handles dashboard chat
             } else {
@@ -1385,27 +662,28 @@ var App = function () {
 
             handleScrollers(); // handles slim scrolling contents
             handleUniform(); // handles uniform elements
-            handleClockfaceTimePickers(); //handles form clockface timepickers
-            handleTagsInput() // handles tag input elements
-            handleTables(); // handles data tables
+            //handleClockfaceTimePickers(); //handles form clockface timepickers
+            //handleTagsInput() // handles tag input elements
+            //handleTables(); // handles data tables
             //handleCharts(); // handles plot charts
-            handleWidgetTools(); // handles portlet action bar functionality(refresh, configure, toggle, remove)
+            //handleWidgetTools(); // handles portlet action bar functionality(refresh, configure, toggle, remove)
             handlePulsate(); // handles pulsate functionality on page elements
-            handlePeity(); // handles pierty bar and line charts
-            handleGritterNotifications(); // handles gritter notifications
-            handleTooltip(); // handles bootstrap tooltips
-            handlePopover(); // handles bootstrap popovers
-            handleToggleButtons(); // handles form toogle buttons
-            handleWysihtml5(); //handles WYSIWYG Editor 
-            handleDateTimePickers(); //handles form timepickers
-            handleColorPicker(); // handles form color pickers
-            handleFancyBox(); // handles fancy box image previews
+            handleSlider(); // handles sliders in to to list
+            //handlePeity(); // handles pierty bar and line charts
+            //handleGritterNotifications(); // handles gritter notifications
+            //handleTooltip(); // handles bootstrap tooltips
+            //handlePopover(); // handles bootstrap popovers
+            //handleToggleButtons(); // handles form toogle buttons
+            //handleWysihtml5(); //handles WYSIWYG Editor 
+            //handleDateTimePickers(); //handles form timepickers
+            //handleColorPicker(); // handles form color pickers
+            //handleFancyBox(); // handles fancy box image previews
             handleStyler(); // handles style customer tool
             handleMainMenu(); // handles main menu
             handleFixInputPlaceholderForIE(); // fixes/enables html5 placeholder attribute for IE9, IE8
             handleGoTop(); //handles scroll to top functionality in the footer
-            handleAccordions();
-            handleFormWizards();
+            //handleAccordions();
+            //handleFormWizards();
             handleSidebarToggler();
 
             //if (isMainPage) { // this is for demo purpose. you may remove handleIntro function for your project
@@ -1474,33 +752,7 @@ var App = function () {
             isMainPage = flag;
         }
     };
-
-    //input mask
-
-    $('.inputmask').inputmask();
-
 }();
 
 //tooltips
-
 $('.element').tooltip();
-
-
-// Slider input js
-try{
-    jQuery("#Slider1").slider({ from: 5, to: 50, step: 2.5, round: 1, dimension: '&nbsp;$', skin: "round_plastic" });
-    jQuery("#Slider2").slider({ from: 5000, to: 150000, heterogeneity: ['50/50000'], step: 1000, dimension: '&nbsp;$', skin: "round_plastic" });
-    jQuery("#Slider3").slider({ from: 1, to: 30, heterogeneity: ['50/5', '75/15'], scale: [1, '|', 3, '|', '5', '|', 15, '|', 30], limits: false, step: 1, dimension: '', skin: "round_plastic" });
-    jQuery("#Slider4").slider({ from: 480, to: 1020, step: 15, dimension: '', scale: ['8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'], limits: false, skin: "round_plastic", calculate: function( value ){
-        var hours = Math.floor( value / 60 );
-        var mins = ( value - hours*60 );
-        return (hours < 10 ? "0"+hours : hours) + ":" + ( mins == 0 ? "00" : mins );
-    }});
-} catch (e){
-    errorMessage(e);
-}
-
-
-//knob
-
-$(".knob").knob();

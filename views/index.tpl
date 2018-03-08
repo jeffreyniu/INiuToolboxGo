@@ -42,33 +42,20 @@
         <div class="square-state">
             <div class="row-fluid">
                 <a class="icon-btn span2" href="#">
-                    <i class="icon-group"></i>
-                    <div>Users</div>
-                    <span class="badge badge-important">2</span>
+                    <i class="icon-comments-alt"></i>
+                    <div>Chats</div>
+                    <span class="badge badge-important">4</span>
                 </a>
                 <a class="icon-btn span2" href="#">
                     <i class="icon-calendar"></i>
-                    <div>Calendar</div>
-                </a>
-                <a class="icon-btn span2" href="#">
-                    <i class="icon-sitemap"></i>
-                    <div>Categories</div>
+                    <div>Calendar today</div>
+                    <span class="badge badge-important">2</span>
                 </a>
                 <a class="icon-btn span2" href="#">
                     <i class="icon-tasks"></i>
-                    <div>Task</div>
-                    <span class="badge badge-important">3</span>
-                </a>
-                <a class="icon-btn span2" href="#">
-                    <i class="icon-plane"></i>
-                    <div>Projects</div>
-                    <span class="badge badge-info">21</span>
-                </a>
-                <a class="icon-btn span2" href="#">
-                    <i class="icon-thumbs-up"></i>
-                    <div>Feedback</div>
-                    <span class="badge badge-info">2</span>
-                </a>
+                    <div>To Do List today</div>
+                    <span class="badge badge-important">4</span>
+                </a>                
             </div>
         </div>
         <!-- END SQUARE STATISTIC BLOCKS-->
@@ -79,10 +66,6 @@
                 <div class="widget-title">
                     <h4>
                         <i class="icon-comments-alt"></i> Chats</h4>
-                    <span class="tools">
-                        <a href="javascript:;" class="icon-chevron-down"></a>
-                        <a href="javascript:;" class="icon-remove"></a>
-                    </span>
                 </div>
                 <div class="widget-body">
                     <div class="timeline-messages">
@@ -123,10 +106,16 @@
                     <div class="widget-title">
                         <h4>
                             <i class="icon-calendar"></i> Calendar</h4>
-                        <span class="tools">
-                            <a href="javascript:;" class="icon-chevron-down"></a>
-                            <a href="javascript:;" class="icon-remove"></a>
-                        </span>
+                            <div class="col2">
+                                <span class="label label-default">
+                                    <i class="icon-bell"></i>Default</span>
+                                <span class="label label-success">
+                                    <i class="icon-bell"></i>Success</span>
+                                <span class="label label-warning">
+                                    <i class="icon-bell"></i>Warning</span>
+                                <span class="label label-important">
+                                    <i class="icon-bell"></i>Important</span>
+                            </div>
                     </div>
                     <div class="widget-body">
                         <div id="calendar" class="has-toolbar"></div>
@@ -141,7 +130,7 @@
                 <div class="widget">
                     <div class="widget-title">
                         <h4>
-                            <i class="icon-check"></i> To Do List</h4>
+                            <i class="icon-tasks"></i> To Do List</h4>
                         <div class="col2">
                             <span class="label label-default">
                                 <i class="icon-bell"></i>Default</span>
@@ -150,11 +139,7 @@
                             <span class="label label-warning">
                                 <i class="icon-bell"></i>Warning</span>
                             <span class="label label-important">
-                                <i class="icon-bell"></i>Important</span>                  
-                            <span class="tools">
-                                <a href="javascript:;" class="icon-chevron-down"></a>
-                                <a href="javascript:;" class="icon-remove"></a>
-                            </span>
+                                <i class="icon-bell"></i>Important</span>
                         </div>
                     </div>
                     <div class="widget-body">
@@ -166,9 +151,14 @@
                                         <a href=""> {{$v.Msg}}</a>
                                     </div>
                                 </div>
+                                <div class="col1">
+                                    <div style="width:70%;margin-left:10px;">
+                                        <input class="slider" type="slider" value="{{$v.Progress}}" />
+                                    </div>
+                                </div>
                                 <div class="col2">
                                     <span class="label label-{{$v.Type}}">
-                                        <i class="icon-bell"></i>{{$v.Date}}</span>
+                                        <i class="icon-bell {{$v.Pulsate}}"></i>{{$v.Date}}</span>
                                     <span class="actions">
                                         <a href="#" class="icon">
                                             <i class="icon-ok"></i>
