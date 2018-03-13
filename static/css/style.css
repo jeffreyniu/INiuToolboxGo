@@ -1143,7 +1143,7 @@ ul.item-list li .label {
     cursor: text;
 }
 .jslider .jslider-value {
-    border: 1px solid #CDCDCD;
+    /*border: 1px solid #CDCDCD;*/
     border-radius: 10px !important;
     -moz-border-radius: 10px !important;
     -webkit-border-radius: 10px !important;
@@ -1156,7 +1156,7 @@ ul.item-list li .label {
 }
 .jslider .jslider-value {
     padding: 3px 5px 0 !important;
-    top: 4px !important;
+    top: 6px !important;
 }
 .jslider_round_plastic .jslider-pointer {
     height: 23px !important;
@@ -2101,115 +2101,10 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 .circle-state-icon .blue-color {
     color: #93c4e4;
 }
-
-/*map stats*/
-
-.map-stat {
-    margin: 20px;
-    display: block;
-}
-.map-stat:before,
-.map-stat:after {
-    display: table;
-    line-height: 0;
-    content: "";
-}
-.map-stat:after {
-    clear: both;
-}
-
-.map-stat .visual {
-    width: 70px;
-    height: 60px;
-    margin-right: 5px;
-    display: block;
-    float: left;
-}
-
-.map-stat .visual i{
-    margin-top: 15px;
-    display: block;
-    font-size: 68px;
-    color: #4d4d4d;
-}
-
-.map-stat .details {
-    display: block;
-    float: left;
-    margin-left: 5px;
-    padding-top: 0px;
-}
-
-.map-stat .details .title {
-    margin: 0px 0px 5px 0px !important;
-    padding: 0px !important;
-    font-size: 12px;
-    color: #878787;
-}
-
-.map-stat .details .title i {
-    margin-top:2px !important;
-    color: #52e136;
-    font-size: 16px;
-}
-
-.map-stat .details .title i.down {
-    color: #b63625;
-}
-
-.map-stat .details .number {
-    margin: 0px !important;
-    margin-bottom: 7px !important;
-    font-size: 42px;
-    padding: 0px;
-    font-weight: bold;
-    color: #35d1fe;
-}
-
 /*scroller padding*/
 .scroller {
     padding-right: 10px;
 }
-
-
-/*jqvmap changes*/
-.jqvmap-zoomin {
-    background-color: #666 !important;
-}
-.jqvmap-zoomout {
-    background-color: #666 !important;
-}
-.vmaps {
-    position: relative;
-    overflow: hidden;
-    height: 300px;
-}
-
-
-/* google maps */
-.gmaps {
-    height: 300px;
-    width: 100%;
-}
-
-/* important!  bootstrap sets max-width on img to 100% which conflicts with google map canvas*/
-.gmaps img {
-    max-width: none;
-}
-
-#gmap_static div{
-    background-repeat: no-repeat !important;
-    background-position: 50% 50% !important;
-    height:100%;
-    display:block;
-    height: 300px;
-}
-
-#gmap_routes_instructions {
-    margin-top: 10px;
-    margin-bottom: 0px;
-}
-
 /* advance tables*/
 .table-advance {
     margin-bottom: 10px !important;
@@ -2432,7 +2327,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 
 .todo-list .col1 {
     float:left;
-    width:100%;
+    width:96%;
     clear: both;
 }
 

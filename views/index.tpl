@@ -41,17 +41,17 @@
         <!-- BEGIN SQUARE STATISTIC BLOCKS-->
         <div class="square-state">
             <div class="row-fluid">
-                <a class="icon-btn span2" href="#">
+                <a class="icon-btn span2" id="alink_chats" href="#">
                     <i class="icon-comments-alt"></i>
                     <div>Chats</div>
                     <span class="badge badge-important">4</span>
                 </a>
-                <a class="icon-btn span2" href="#">
+                <a class="icon-btn span2" id="alink_calendar" href="#">
                     <i class="icon-calendar"></i>
                     <div>Calendar today</div>
                     <span class="badge badge-important">2</span>
                 </a>
-                <a class="icon-btn span2" href="#">
+                <a class="icon-btn span2" id="alink_todolist" href="#">
                     <i class="icon-tasks"></i>
                     <div>To Do List today</div>
                     <span class="badge badge-important">4</span>
@@ -62,13 +62,13 @@
 
         <div class="row-fluid">
             <!-- BEGIN CHAT PORTLET-->
-            <div class="widget" id="chats">
+            <div class="widget" id="widget_chats">
                 <div class="widget-title">
                     <h4>
                         <i class="icon-comments-alt"></i> Chats</h4>
                 </div>
                 <div class="widget-body">
-                    <div class="timeline-messages">
+                    <div class="timeline-messages scroller" data-height="365" data-always-visible="1">
                         <!-- Comment -->
                         {{range $k,$v:= .chat_msgs}}
                         <div class="msg-time-chat">
@@ -102,7 +102,7 @@
         <div class="row-fluid">
             <div class="span12 responsive" data-tablet="span12 fix-margin" data-desktop="span12">
                 <!-- BEGIN CALENDAR PORTLET-->
-                <div class="widget">
+                <div class="widget" id="widget_calendar">
                     <div class="widget-title">
                         <h4>
                             <i class="icon-calendar"></i> Calendar</h4>
@@ -127,7 +127,7 @@
         <div class="row-fluid">
             <div class="span12 responsive" data-tablet="span12 fix-margin" data-desktop="span12">
                 <!-- BEGIN TODO_LIST PORTLET-->
-                <div class="widget">
+                <div class="widget" id="widget_todolist">
                     <div class="widget-title">
                         <h4>
                             <i class="icon-tasks"></i> To Do List</h4>
@@ -143,7 +143,7 @@
                         </div>
                     </div>
                     <div class="widget-body">
-                        <ul class="todo-list">
+                        <ul class="todo-list scroller" data-height="365" data-always-visible="1">
                             {{range $k,$v:= .todo_msgs}}
                             <li>
                                 <div class="col1">

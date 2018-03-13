@@ -527,34 +527,6 @@ var App = function () {
         });
     }
 
-    //obsolete
-    var handleTooltip = function () {
-        jQuery('.tooltips').tooltip();
-    }
-    //obsolete
-    var handlePopover = function () {
-        jQuery('.popovers').popover();
-    }
-
-    var handleChoosenSelect = function () {
-        if (!jQuery().chosen) {
-            return;
-        }
-        $(".chosen").chosen();
-        $(".chosen-with-diselect").chosen({
-            allow_single_deselect: true
-        });
-    }
-
-    var handleUniform = function () {
-        if (!jQuery().uniform) {
-            return;
-        }
-        if (test = $("input[type=checkbox]:not(.toggle), input[type=radio]:not(.toggle)")) {
-            test.uniform();
-        }
-    }
-
     var handleScrollers = function () {
         if (!jQuery().slimScroll) {
             return;
@@ -576,7 +548,18 @@ var App = function () {
         jQuery('#footer .go-top').click(function () {
             App.scrollTo();
         });
+        //top 3 links
+        jQuery('#alink_chats').click(function () {
+            App.scrollTo($('#widget_chats'));
+        });
 
+        jQuery('#alink_calendar').click(function () {
+            App.scrollTo($('#widget_calendar'));
+        });
+
+        jQuery('#alink_todolist').click(function () {
+            App.scrollTo($('#widget_todolist'));
+        });
     }
 
     // this is optional to use if you want animated show/hide. But plot charts can make the animation slow.
@@ -649,7 +632,7 @@ var App = function () {
             }
 
             handleDeviceWidth(); // handles proper responsive features of the page
-            handleChoosenSelect(); // handles bootstrap chosen dropdowns
+            //handleChoosenSelect(); // handles bootstrap chosen dropdowns
 
             if (isMainPage) {
                 //handleDashboardCharts(); // handles plot charts for main page
@@ -661,7 +644,7 @@ var App = function () {
             }
 
             handleScrollers(); // handles slim scrolling contents
-            handleUniform(); // handles uniform elements
+            //handleUniform(); // handles uniform elements
             //handleClockfaceTimePickers(); //handles form clockface timepickers
             //handleTagsInput() // handles tag input elements
             //handleTables(); // handles data tables
