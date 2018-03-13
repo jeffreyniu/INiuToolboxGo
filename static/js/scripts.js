@@ -240,51 +240,7 @@ var App = function () {
             }]
         });
 
-    }
-
-    var handleChat = function () {
-        var cont = $('#chats');
-        var list = $('.chats', cont);
-        var form = $('.chat-form', cont);
-        var input = $('input', form);
-        var btn = $('.btn', form);
-
-        var handleClick = function () {
-            var text = input.val();
-            if (text.length == 0) {
-                return;
-            }
-
-            var time = new Date();
-            var time_str = time.toString('MMM dd, yyyy HH:MM');
-            var tpl = '';
-            tpl += '<li class="out">';
-            tpl += '<img class="avatar" alt="" src="/static/img/avatar1.jpg"/>';
-            tpl += '<div class="message">';
-            tpl += '<span class="arrow"></span>';
-            tpl += '<a href="#" class="name">Sumon Ahmed</a>&nbsp;';
-            tpl += '<span class="datetime">at ' + time_str + '</span>';
-            tpl += '<span class="body">';
-            tpl += text;
-            tpl += '</span>';
-            tpl += '</div>';
-            tpl += '</li>';
-
-            var msg = list.append(tpl);
-            input.val("");
-            $('.scroller', cont).slimScroll({
-                scrollTo: list.height()
-            });
-        }
-
-        btn.click(handleClick);
-        input.keypress(function (e) {
-            if (e.which == 13) {
-                handleClick();
-                return false; //<---- Add this line
-            }
-        });
-    }
+    } 
 
     //obsolete
     var handleClockfaceTimePickers = function () {
@@ -548,11 +504,8 @@ var App = function () {
         jQuery('#footer .go-top').click(function () {
             App.scrollTo();
         });
-        //top 3 links
-        jQuery('#alink_chats').click(function () {
-            App.scrollTo($('#widget_chats'));
-        });
 
+        //top 2 links
         jQuery('#alink_calendar').click(function () {
             App.scrollTo($('#widget_calendar'));
         });
@@ -637,7 +590,7 @@ var App = function () {
             if (isMainPage) {
                 //handleDashboardCharts(); // handles plot charts for main page
                 handleDashboardCalendar(); // handles full calendar for main page
-                handleChat() // handles dashboard chat
+                //handleChat() // handles dashboard chat
             } else {
                 handleCalendar(); // handles full calendars
                 handlePortletSortable(); // handles portlet draggable sorting
@@ -697,7 +650,7 @@ var App = function () {
 
         // wrapper function to scroll to an element
         scrollTo: function (el) {
-            pos = el ? el.offset().top : 0;
+            pos = el ? el.offset().top-70 : 0;
             jQuery('html,body').animate({
                 scrollTop: pos
             }, 'slow');

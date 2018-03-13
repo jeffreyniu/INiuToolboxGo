@@ -41,11 +41,6 @@
         <!-- BEGIN SQUARE STATISTIC BLOCKS-->
         <div class="square-state">
             <div class="row-fluid">
-                <a class="icon-btn span2" id="alink_chats" href="#">
-                    <i class="icon-comments-alt"></i>
-                    <div>Chats</div>
-                    <span class="badge badge-important">4</span>
-                </a>
                 <a class="icon-btn span2" id="alink_calendar" href="#">
                     <i class="icon-calendar"></i>
                     <div>Calendar today</div>
@@ -59,45 +54,6 @@
             </div>
         </div>
         <!-- END SQUARE STATISTIC BLOCKS-->
-
-        <div class="row-fluid">
-            <!-- BEGIN CHAT PORTLET-->
-            <div class="widget" id="widget_chats">
-                <div class="widget-title">
-                    <h4>
-                        <i class="icon-comments-alt"></i> Chats</h4>
-                </div>
-                <div class="widget-body">
-                    <div class="timeline-messages scroller" data-height="365" data-always-visible="1">
-                        <!-- Comment -->
-                        {{range $k,$v:= .chat_msgs}}
-                        <div class="msg-time-chat">
-                            <a class="message-img" href="#">
-                                <img alt="" src="/static/img/avatar1.jpg" class="avatar">
-                            </a>                           
-                            <div class="message-body msg-in">
-                                <div class="text">
-                                    <p class="attribution">
-                                        <a href="#">{{$v.Name}}</a> at {{$v.Date}}</p>
-                                    <p>{{$v.Msg}}</p>
-                                </div>
-                                <div class="chat-form">
-                                    <div class="input-cont">
-                                        <input type="text" placeholder="Type a message here..." />
-                                    </div>
-                                    <div class="btn-cont">
-                                        <a href="javascript:;" class="btn btn-primary">Send</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {{end}}
-                        <!-- /comment -->
-                    </div>
-                </div>
-            </div>
-            <!-- END CHAT PORTLET-->
-        </div>
 
         <div class="row-fluid">
             <div class="span12 responsive" data-tablet="span12 fix-margin" data-desktop="span12">

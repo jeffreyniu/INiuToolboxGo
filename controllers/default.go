@@ -23,11 +23,6 @@ func (c *MainController) Init(ct *context.Context, cn string, actionName string,
 		c.Data["mail_msgs"] = msgs
 	}
 
-	chatMsgs, err := models.GetChatMessages()
-	if err == nil {
-		c.Data["chat_msgs"] = chatMsgs
-	}
-
 	todoMsgs, err := models.GetTodoMessages()
 	if err == nil {
 		c.Data["todo_msgs"] = todoMsgs
