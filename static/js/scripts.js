@@ -1,85 +1,5 @@
 var App = function () {
-
-    var isMainPage = false;
     var isIE8 = false;
-
-    var handleDashboardCalendar = function () {
-
-        if (!jQuery().fullCalendar) {
-            return;
-        }
-
-        var date = new Date();
-        var d = date.getDate();
-        var m = date.getMonth();
-        var y = date.getFullYear();
-
-        var h = {};
-
-        if ($(window).width() <= 320) {
-            h = {
-                left: 'title, prev,next',
-                center: '',
-                right: 'today,month,agendaWeek,agendaDay'
-            };
-        } else {
-            h = {
-                left: 'title',
-                center: '',
-                right: 'prev,next,today,month,agendaWeek,agendaDay'
-            };
-        }
-
-        $('#calendar').html("");
-        $('#calendar').fullCalendar({
-            header: h,
-            editable: true,
-            events: [{
-                title: 'All Day Event',
-                start: new Date(y, m, 1),
-                className: 'label label-default',
-            }, {
-                title: 'Long Event',
-                start: new Date(y, m, d - 5),
-                end: new Date(y, m, d - 2),
-                className: 'label label-success',
-            }, {
-                title: 'Repeating Event',
-                start: new Date(y, m, d - 3, 16, 0),
-                allDay: false,
-                className: 'label label-default',
-            }, {
-                title: 'Repeating Event',
-                start: new Date(y, m, d + 4, 16, 0),
-                allDay: false,
-                className: 'label label-important',
-            }, {
-                title: 'Meeting',
-                start: new Date(y, m, d, 10, 30),
-                allDay: false,
-                className: 'label label-info',
-            }, {
-                title: 'Lunch',
-                start: new Date(y, m, d, 12, 0),
-                end: new Date(y, m, d, 14, 0),
-                allDay: false,
-                className: 'label label-warning',
-            }, {
-                title: 'Birthday Party',
-                start: new Date(y, m, d + 1, 19, 0),
-                end: new Date(y, m, d + 1, 22, 30),
-                allDay: false,
-                className: 'label label-success',
-            }, {
-                title: 'Click for Google',
-                start: new Date(y, m, 28),
-                end: new Date(y, m, 29),
-                url: 'http://google.com/',
-                className: 'label label-warning',
-            }]
-        });
-
-    }
 
     var handleCalendar = function () {
 
@@ -167,6 +87,7 @@ var App = function () {
         addEvent("My Event 9", "success");
         addEvent("My Event 10", "default");
 
+        $('#calendar').html('');
         $('#calendar').fullCalendar({
             header: h,
             editable: true,
@@ -240,6 +161,7 @@ var App = function () {
             }]
         });
 
+        $('#external-events').width($('#calendar').width());
     } 
 
     //obsolete
@@ -264,25 +186,6 @@ var App = function () {
         $('#clockface_3').clockface({
             format: 'H:mm'
         }).clockface('show', '14:30');
-    }
-
-    var handlePortletSortable = function () {
-        if (!jQuery().sortable) {
-            return;
-        }
-        $(".sortable").sortable({
-            connectWith: '.sortable',
-            iframeFix: false,
-            items: 'div.widget',
-            opacity: 0.8,
-            helper: 'original',
-            revert: true,
-            forceHelperSize: true,
-            placeholder: 'sortable-box-placeholder round-all',
-            forcePlaceholderSize: true,
-            tolerance: 'pointer'
-        });
-
     }
 
     var handleMainMenu = function () {
@@ -464,12 +367,7 @@ var App = function () {
                     // fix layout width
                     fixWidth();
                     // fix calendar width by just reinitializing
-                    handleDashboardCalendar();
-                    if (isMainPage) {
-                        handleDashboardCalendar(); // handles full calendar for main page
-                    } else {
-                        handleCalendar(); // handles full calendars
-                    }
+                    handleCalendar();
 
                     // fix event form chosen dropdowns
                     $('#event_priority_chzn').width($('#event_title').width() + 15);
@@ -585,46 +483,20 @@ var App = function () {
             }
 
             handleDeviceWidth(); // handles proper responsive features of the page
-            //handleChoosenSelect(); // handles bootstrap chosen dropdowns
 
-            if (isMainPage) {
-                //handleDashboardCharts(); // handles plot charts for main page
-                handleDashboardCalendar(); // handles full calendar for main page
-                //handleChat() // handles dashboard chat
-            } else {
-                handleCalendar(); // handles full calendars
-                handlePortletSortable(); // handles portlet draggable sorting
-            }
+            handleCalendar(); // handles full calendars
 
             handleScrollers(); // handles slim scrolling contents
-            //handleUniform(); // handles uniform elements
-            //handleClockfaceTimePickers(); //handles form clockface timepickers
-            //handleTagsInput() // handles tag input elements
-            //handleTables(); // handles data tables
-            //handleCharts(); // handles plot charts
-            //handleWidgetTools(); // handles portlet action bar functionality(refresh, configure, toggle, remove)
+           
             handlePulsate(); // handles pulsate functionality on page elements
             handleSlider(); // handles sliders in to to list
-            //handlePeity(); // handles pierty bar and line charts
-            //handleGritterNotifications(); // handles gritter notifications
-            //handleTooltip(); // handles bootstrap tooltips
-            //handlePopover(); // handles bootstrap popovers
-            //handleToggleButtons(); // handles form toogle buttons
-            //handleWysihtml5(); //handles WYSIWYG Editor 
-            //handleDateTimePickers(); //handles form timepickers
-            //handleColorPicker(); // handles form color pickers
-            //handleFancyBox(); // handles fancy box image previews
+
             handleStyler(); // handles style customer tool
             handleMainMenu(); // handles main menu
             handleFixInputPlaceholderForIE(); // fixes/enables html5 placeholder attribute for IE9, IE8
             handleGoTop(); //handles scroll to top functionality in the footer
-            //handleAccordions();
-            //handleFormWizards();
-            handleSidebarToggler();
 
-            //if (isMainPage) { // this is for demo purpose. you may remove handleIntro function for your project
-            //    handleIntro();
-            //}
+            handleSidebarToggler();
         },
 
         // login page setup
@@ -685,7 +557,7 @@ var App = function () {
 
         // set main page
         setMainPage: function (flag) {
-            isMainPage = flag;
+            //isMainPage = flag;
         }
     };
 }();

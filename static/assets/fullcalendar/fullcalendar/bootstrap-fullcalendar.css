@@ -154,11 +154,9 @@ html .fc,
 ------------------------------------------------------------------------*/
 
 .fc-button {
-  position: relative;
   overflow: hidden;
   display: inline-block;
   cursor: pointer;
-  top: -52px;
 }
 
 .fc-header {
@@ -252,7 +250,6 @@ html .fc,
     border-color: #DDDDDD #DDDDDD #FFFFFF;
     color: #646464;
 }
-  }
   
 .fc-state-disabled,
 .fc-state-disabled .fc-button-inner {
@@ -629,4 +626,37 @@ table.fc-border-separate {
   
 .fc-agenda .ui-resizable-resizing { /* TODO: better selector */
   _overflow: hidden;
+  }
+
+  #external-events {
+		border: 1px solid #ccc;
+		background: #eee;
+    text-align: left;
+		}
+		
+	#external-events h4 {
+    padding-left:0.5em;
+		font-size: 16px;
+		margin-top: 0;
+		padding-top: 1em;
+		}
+		
+	.external-event { /* try to mimick the look of a real event */
+		margin: 10px 0.5em;
+		padding: 0.2em 0.5em;
+		background: #3366CC;
+		color: #fff;
+		font-size: .85em;
+		cursor: pointer;
+		}
+		
+	#external-events p {
+		margin: 0.5em 0;
+		font-size: 11px;
+		color: #666;
+		}
+		
+	#external-events p input {
+    margin: 10px 0.5em;
+		vertical-align: middle;
   }
