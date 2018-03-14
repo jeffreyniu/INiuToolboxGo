@@ -1,4 +1,5 @@
 var App = function () {
+    var isResizingPage = false;
     var isIE8 = false;
 
     var handleCalendar = function () {
@@ -49,12 +50,12 @@ var App = function () {
             priority = priority.length == 0 ? "default" : priority;
 
             var html = $('<div data-class="label label-' + priority + '" class="external-event label label-' + priority + '">' + title + '</div>');
-            jQuery('#event_box').append(html);
+            jQuery('#external-events').append(html);
             initDrag(html);
         }
 
         $('#external-events div.external-event').each(function () {
-            initDrag($(this))
+            initDrag($(this));
         });
 
         $('#event_add').click(function () {
@@ -75,92 +76,89 @@ var App = function () {
 
         $('#event_priority_chzn').click(handleDropdown);
 
-        //predefined events
-        addEvent("My Event 1", "default");
-        addEvent("My Event 2", "success");
-        addEvent("My Event 3", "info");
-        addEvent("My Event 4", "warning");
-        addEvent("My Event 5", "important");
-        addEvent("My Event 6", "success");
-        addEvent("My Event 7", "info");
-        addEvent("My Event 8", "warning");
-        addEvent("My Event 9", "success");
-        addEvent("My Event 10", "default");
+        if (!isResizingPage) {
+            //predefined events
+            addEvent("My Event 1", "default");
+            addEvent("My Event 2", "success");
+            addEvent("My Event 3", "info");
+            addEvent("My Event 4", "warning");
+            addEvent("My Event 5", "important");
+        
 
-        $('#calendar').html('');
-        $('#calendar').fullCalendar({
-            header: h,
-            editable: true,
-            droppable: true, // this allows things to be dropped onto the calendar !!!
-            drop: function (date, allDay) { // this function is called when something is dropped
+            $('#calendar').html('');
+            $('#calendar').fullCalendar({
+                header: h,
+                editable: true,
+                droppable: true, // this allows things to be dropped onto the calendar !!!
+                drop: function (date, allDay) { // this function is called when something is dropped
 
-                // retrieve the dropped element's stored Event Object
-                var originalEventObject = $(this).data('eventObject');
-                // we need to copy it, so that multiple events don't have a reference to the same object
-                var copiedEventObject = $.extend({}, originalEventObject);
+                    // retrieve the dropped element's stored Event Object
+                    var originalEventObject = $(this).data('eventObject');
+                    // we need to copy it, so that multiple events don't have a reference to the same object
+                    var copiedEventObject = $.extend({}, originalEventObject);
 
-                // assign it the date that was reported
-                copiedEventObject.start = date;
-                copiedEventObject.allDay = allDay;
-                copiedEventObject.className = $(this).attr("data-class");
+                    // assign it the date that was reported
+                    copiedEventObject.start = date;
+                    copiedEventObject.allDay = allDay;
+                    copiedEventObject.className = $(this).attr("data-class");
 
-                // render the event on the calendar
-                // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
-                $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
+                    // render the event on the calendar
+                    // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+                    $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
 
-                // is the "remove after drop" checkbox checked?
-                if ($('#drop-remove').is(':checked')) {
-                    // if so, remove the element from the "Draggable Events" list
-                    $(this).remove();
-                }
-            },
-            events: [{
-                title: 'All Day Event',
-                start: new Date(y, m, 1),
-                className: 'label label-default',
-            }, {
-                title: 'Long Event',
-                start: new Date(y, m, d - 5),
-                end: new Date(y, m, d - 2),
-                className: 'label label-success',
-            }, {
-                id: 999,
-                title: 'Repeating Event',
-                start: new Date(y, m, d - 3, 16, 0),
-                allDay: false,
-                className: 'label label-default',
-            }, {
-                id: 999,
-                title: 'Repeating Event',
-                start: new Date(y, m, d + 4, 16, 0),
-                allDay: false,
-                className: 'label label-important',
-            }, {
-                title: 'Meeting',
-                start: new Date(y, m, d, 10, 30),
-                allDay: false,
-                className: 'label label-info',
-            }, {
-                title: 'Lunch',
-                start: new Date(y, m, d, 12, 0),
-                end: new Date(y, m, d, 14, 0),
-                allDay: false,
-                className: 'label label-warning',
-            }, {
-                title: 'Birthday Party',
-                start: new Date(y, m, d + 1, 19, 0),
-                end: new Date(y, m, d + 1, 22, 30),
-                allDay: false,
-                className: 'label label-success',
-            }, {
-                title: 'Click for Google',
-                start: new Date(y, m, 28),
-                end: new Date(y, m, 29),
-                url: 'http://google.com/',
-                className: 'label label-warning',
-            }]
-        });
-
+                    // is the "remove after drop" checkbox checked?
+                    if ($('#drop-remove').is(':checked')) {
+                        // if so, remove the element from the "Draggable Events" list
+                        $(this).remove();
+                    }
+                },
+                events: [{
+                    title: 'All Day Event',
+                    start: new Date(y, m, 1),
+                    className: 'label label-default',
+                }, {
+                    title: 'Long Event',
+                    start: new Date(y, m, d - 5),
+                    end: new Date(y, m, d - 2),
+                    className: 'label label-success',
+                }, {
+                    id: 999,
+                    title: 'Repeating Event',
+                    start: new Date(y, m, d - 3, 16, 0),
+                    allDay: false,
+                    className: 'label label-default',
+                }, {
+                    id: 999,
+                    title: 'Repeating Event',
+                    start: new Date(y, m, d + 4, 16, 0),
+                    allDay: false,
+                    className: 'label label-important',
+                }, {
+                    title: 'Meeting',
+                    start: new Date(y, m, d, 10, 30),
+                    allDay: false,
+                    className: 'label label-info',
+                }, {
+                    title: 'Lunch',
+                    start: new Date(y, m, d, 12, 0),
+                    end: new Date(y, m, d, 14, 0),
+                    allDay: false,
+                    className: 'label label-warning',
+                }, {
+                    title: 'Birthday Party',
+                    start: new Date(y, m, d + 1, 19, 0),
+                    end: new Date(y, m, d + 1, 22, 30),
+                    allDay: false,
+                    className: 'label label-success',
+                }, {
+                    title: 'Click for Google',
+                    start: new Date(y, m, 28),
+                    end: new Date(y, m, 29),
+                    url: 'http://google.com/',
+                    className: 'label label-warning',
+                }]
+            });
+        }
         $('#external-events').width($('#calendar').width());
     } 
 
@@ -361,6 +359,7 @@ var App = function () {
 
         running = false;
         jQuery(window).resize(function () {
+            isResizingPage = true;
             if (running == false) {
                 running = true;
                 setTimeout(function () {
@@ -376,6 +375,7 @@ var App = function () {
                     $(".chzn-select").val('').trigger("liszt:updated");
                     //finish
                     running = false;
+                    isResizingPage = false;
                 }, 200); // wait for 200ms on resize event           
             }
         });
@@ -556,8 +556,8 @@ var App = function () {
         },
 
         // set main page
-        setMainPage: function (flag) {
-            //isMainPage = flag;
+        setResizingPage: function (flag) {
+            isResizingPage = flag;
         }
     };
 }();

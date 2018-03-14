@@ -644,16 +644,16 @@ table.fc-border-separate {
 	.external-event { /* try to mimick the look of a real event */
 		margin: 10px 0.5em;
 		padding: 0.2em 0.5em;
-		background: #3366CC;
 		color: #fff;
 		font-size: .85em;
 		cursor: pointer;
 		}
 		
 	#external-events p {
-		margin: 0.5em 0;
+		margin: -3em 0.5em;
 		font-size: 11px;
-		color: #666;
+    color: #666;
+    float: right;
 		}
 		
 	#external-events p input {

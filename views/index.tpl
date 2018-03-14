@@ -75,15 +75,13 @@
                     </div>
                     <div class="widget-body">
                         <div id='external-events'>
-                            <h4>Draggable Events</h4>
-                            <div class='external-event'>My Event 1</div>
-                            <div class='external-event'>My Event 2</div>
-                            <div class='external-event'>My Event 3</div>
-                            <div class='external-event'>My Event 4</div>
-                            <div class='external-event'>My Event 5</div>
-                            <p>
-                                <input type='checkbox' id='drop-remove' />Remove after drop
-                            </p>
+                            <div>
+                                <h4>Draggable Events</h4>
+                                <p>
+                                    <input type='checkbox' id='drop-remove' />Remove after drop
+                                </p>
+                            </div>
+                            <!--<div class='external-event label label-success' data-class='label label-success'>Demo Event 1</div>-->
                         </div>
                         <div id="calendar" class="has-toolbar"></div>
                     </div>

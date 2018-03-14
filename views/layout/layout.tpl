@@ -229,7 +229,7 @@ Website: http://thevectorlab.net/
 	<script>
 		jQuery(document).ready(function () {
 			// initiate layout and plugins
-			App.setMainPage(true);
+			App.setResizingPage(false);
 			App.init();
 		});
 	</script>
