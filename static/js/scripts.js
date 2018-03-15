@@ -54,37 +54,17 @@ var App = function () {
             initDrag(html);
         }
 
-        $('#external-events div.external-event').each(function () {
-            initDrag($(this));
-        });
+        if (!isResizingPage) {            
+            $('#external-events div.external-event').each(function () {
+                initDrag($(this));
+            });
 
-        $('#event_add').click(function () {
-            var title = $('#event_title').val();
-            var priority = $('#event_priority').val();
-            addEvent(title, priority);
-        });
-
-        //modify chosen options
-        var handleDropdown = function () {
-            $('#event_priority_chzn .chzn-search').hide(); //hide search box
-            $('#event_priority_chzn_o_1').html('<span class="label label-default">' + $('#event_priority_chzn_o_1').text() + '</span>');
-            $('#event_priority_chzn_o_2').html('<span class="label label-success">' + $('#event_priority_chzn_o_2').text() + '</span>');
-            $('#event_priority_chzn_o_3').html('<span class="label label-info">' + $('#event_priority_chzn_o_3').text() + '</span>');
-            $('#event_priority_chzn_o_4').html('<span class="label label-warning">' + $('#event_priority_chzn_o_4').text() + '</span>');
-            $('#event_priority_chzn_o_5').html('<span class="label label-important">' + $('#event_priority_chzn_o_5').text() + '</span>');
-        }
-
-        $('#event_priority_chzn').click(handleDropdown);
-
-        if (!isResizingPage) {
-            //predefined events
-            addEvent("My Event 1", "default");
-            addEvent("My Event 2", "success");
-            addEvent("My Event 3", "info");
-            addEvent("My Event 4", "warning");
-            addEvent("My Event 5", "important");
-        
-
+            $('#event_add').click(function () {
+                var title = $('#event_title').val();
+                var priority = $('#event_priority').val();
+                addEvent(title, priority);
+            });
+            
             $('#calendar').html('');
             $('#calendar').fullCalendar({
                 header: h,

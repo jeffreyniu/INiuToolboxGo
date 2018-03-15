@@ -62,16 +62,18 @@
                     <div class="widget-title">
                         <h4>
                             <i class="icon-calendar"></i> Calendar</h4>
-                            <div class="col2">
-                                <span class="label label-default">
-                                    <i class="icon-bell"></i>Default</span>
-                                <span class="label label-success">
-                                    <i class="icon-bell"></i>Success</span>
-                                <span class="label label-warning">
-                                    <i class="icon-bell"></i>Warning</span>
-                                <span class="label label-important">
-                                    <i class="icon-bell"></i>Important</span>
-                            </div>
+                        <div class="col2" style="padding:5px;">
+                            <span class="label label-default">
+                                <i class="icon-bell"></i>Default</span>
+                            <span class="label label-success">
+                                <i class="icon-bell"></i>Success</span>
+                            <span class="label label-info">
+                                <i class="icon-bell"></i>Info</span>
+                            <span class="label label-warning">
+                                <i class="icon-bell"></i>Warning</span>
+                            <span class="label label-important">
+                                <i class="icon-bell"></i>Important</span>
+                        </div>
                     </div>
                     <div class="widget-body">
                         <div id='external-events'>
@@ -80,6 +82,17 @@
                                 <p>
                                     <input type='checkbox' id='drop-remove' />Remove after drop
                                 </p>
+                                <div class='external-events-new'>
+                                    <input type="text" id="event_title"/>
+                                    <select data-placeholder="category" class="chzn-select" id='event_priority'>
+                                        <option value="default">Default</option>
+                                        <option value="success">Success</option>
+                                        <option value="info">Info</option>
+                                        <option value="warning">Warning</option>
+                                        <option value="important">Important</option>
+                                    </select>
+                                    <input type="button" id="event_add" value="New"/>        
+                                </div>                              
                             </div>
                             <!--<div class='external-event label label-success' data-class='label label-success'>Demo Event 1</div>-->
                         </div>
@@ -96,11 +109,13 @@
                     <div class="widget-title">
                         <h4>
                             <i class="icon-tasks"></i> To Do List</h4>
-                        <div class="col2">
+                        <div class="col2" style="padding:5px;">
                             <span class="label label-default">
                                 <i class="icon-bell"></i>Default</span>
                             <span class="label label-success">
                                 <i class="icon-bell"></i>Success</span>
+                            <span class="label label-info">
+                                <i class="icon-bell"></i>Info</span>    
                             <span class="label label-warning">
                                 <i class="icon-bell"></i>Warning</span>
                             <span class="label label-important">

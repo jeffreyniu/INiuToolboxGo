@@ -635,12 +635,18 @@ table.fc-border-separate {
 		}
 		
 	#external-events h4 {
-    padding-left:0.5em;
-		font-size: 16px;
-		margin-top: 0;
-		padding-top: 1em;
+    padding:0.5em;
+		font-size: 12px;
+    margin: 0;
+    font-weight: bold;
 		}
-		
+
+  #external-events .external-events-new {
+    padding:0.5em;
+    font-size: 12px;
+    margin-top: 0;
+    }
+
 	.external-event { /* try to mimick the look of a real event */
 		margin: 10px 0.5em;
 		padding: 0.2em 0.5em;
@@ -659,4 +665,14 @@ table.fc-border-separate {
 	#external-events p input {
     margin: 10px 0.5em;
 		vertical-align: middle;
+  }
+
+  #event_title{
+    margin-bottom: 0;
+  }
+
+  .chzn-select {
+    bottom: 0;
+    margin-bottom: 0;
+    width:150px;
   }
