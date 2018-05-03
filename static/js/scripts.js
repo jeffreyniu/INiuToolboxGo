@@ -452,6 +452,27 @@ var App = function () {
         })
     }
 
+    var handleNavigatorInfo = function () {
+        var appCodeName = navigator.appCodeName;
+        var appName = navigator.appName;
+        var appVersion = navigator.appVersion;
+        var platform = navigator.platform;
+        var product = navigator.product;
+        var productSub = navigator.productSub;
+        var userAgent = navigator.userAgent;
+        var vendor = navigator.vendor;
+        var vendorSub = navigator.vendorSub;
+        $("#navigator_info").html("appCodeName: " + appCodeName + "<br>"
+            + "appName: " + appName + "<br>"
+            + "appVersion: " + appVersion + "<br>"
+            + "platform: " + platform + "<br>"
+            + "product: " + product + "<br>"
+            + "productSub: " + productSub + "<br>"
+            + "userAgent: " + userAgent + "<br>"
+            + "vendor: " + vendor + "<br>"
+            + "vendorSub: " + vendorSub);
+    }
+    
     return {
 
         //main function to initiate template pages
@@ -461,6 +482,8 @@ var App = function () {
                 isIE8 = true; // checkes for IE8 browser version
                 $('.visible-ie8').show();
             }
+
+            handleNavigatorInfo(); // show Navigator Info
 
             handleDeviceWidth(); // handles proper responsive features of the page
 

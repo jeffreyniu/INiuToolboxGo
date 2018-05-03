@@ -186,9 +186,10 @@ Website: http://thevectorlab.net/
 	<!-- BEGIN FOOTER -->
 	<div id="footer">
 		&copy;2017-2020 版权所有 / 联系站长：
-		<a class="email" href="mailto:iniutoolbox@aliyun.com">iniutoolbox@aliyun.com</a>
+		<a class="email" href="mailto:iniutoolbox@aliyun.com">iniutoolbox@aliyun.com</a>		
 		<br> 备案/许可证编号：
 		<a href="http://www.miitbeian.gov.cn">沪ICP备17026684号</a>
+		<br>浏览器信息：<span id="navigator_info"></span>
 		<div class="span pull-right">
 			<span class="go-top">
 				<i class="icon-arrow-up"></i>
