@@ -3874,7 +3874,6 @@ function AgendaEventRenderer() {
 	
 	
 	function slotSegHtml(event, seg) {
-		var html = "<";
 		var url = event.url;
 		var skinCss = getSkinCss(event, opt);
 		var skinCssAttr = (skinCss ? " style='" + skinCss + "'" : '');
@@ -3892,11 +3891,8 @@ function AgendaEventRenderer() {
 		if (event.source) {
 			classes = classes.concat(event.source.className || []);
 		}
-		if (url) {
-			html += "a href='" + htmlEscape(event.url) + "'";
-		}else{
-			html += "div";
-		}
+
+		var html = "<div";
 		html +=
 			" class='" + classes.join(' ') + "'" +
 			" style='position:absolute;z-index:8;top:" + seg.top + "px;left:" + seg.left + "px;" + skinCss + "'" +
@@ -3907,19 +3903,22 @@ function AgendaEventRenderer() {
 			htmlEscape(formatDates(event.start, event.end, opt('timeFormat'))) +
 			"</div>" +
 			"</div>" +
-			"<div class='fc-event-content'>" +
-			"<div class='fc-event-title'>" +
-			htmlEscape(event.title) +
-			"</div>" +
-			"</div>" +
+			"<div class='fc-event-content'>";
+		if (url) {
+			html += "<a href='" + htmlEscape(event.url) + "'>" +
+				"<div class='fc-event-title'>" + htmlEscape(event.title) + "</div></a>";
+		}
+		else {
+			html += "<div class='fc-event-title'>" + htmlEscape(event.title) + "</div>";
+		}
+		html += "</div>" +
 			"<div class='fc-event-bg'></div>" +
 			"</div>"; // close inner
 		if (seg.isEnd && isEventResizable(event)) {
 			html +=
 				"<div class='ui-resizable-handle ui-resizable-s'>=</div>";
 		}
-		html +=
-			"</" + (url ? "a" : "div") + ">";
+		html +="</div>";
 		return html;
 	}
 	
@@ -4637,11 +4636,7 @@ function DayEventRenderer() {
 			}
 			url = event.url;
 			skinCss = getSkinCss(event, opt);
-			if (url) {
-				html += "<a href='" + htmlEscape(url) + "'";
-			}else{
-				html += "<div";
-			}
+			html += "<div";
 			html +=
 				" class='" + classes.join(' ') + "'" +
 				" style='position:absolute;z-index:8;left:"+left+"px;" + skinCss + "'" +
@@ -4656,17 +4651,23 @@ function DayEventRenderer() {
 					htmlEscape(formatDates(event.start, event.end, opt('timeFormat'))) +
 					"</span>";
 			}
+			if (url) {
+				html +="<a href='" + htmlEscape(url) + "'>"+
+					"<span class='fc-event-title'>" + htmlEscape(event.title) + "</span></a>";
+			}
+			else {
+				html +=
+					"<span class='fc-event-title'>" + htmlEscape(event.title) + "</span>";
+			}
 			html +=
-				"<span class='fc-event-title'>" + htmlEscape(event.title) + "</span>" +
-				"</div>";
+				"</div><button type='button' class='close fc-event-close' aria-hidden='true'>&times;</button>";
 			if (seg.isEnd && isEventResizable(event)) {
 				html +=
 					"<div class='ui-resizable-handle ui-resizable-" + (rtl ? 'w' : 'e') + "'>" +
 					"&nbsp;&nbsp;&nbsp;" + // makes hit area a lot better for IE6/7
 					"</div>";
 			}
-			html +=
-				"</" + (url ? "a" : "div" ) + ">";
+			html +="</div>";
 			seg.left = left;
 			seg.outerWidth = right - left;
 			seg.startCol = leftCol;

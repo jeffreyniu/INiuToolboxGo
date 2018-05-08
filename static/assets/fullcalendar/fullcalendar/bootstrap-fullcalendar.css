@@ -298,16 +298,21 @@ a.fc-event {
   
 .fc-event-inner {
   position: relative;
-  width: 100%;
+  width: 90%;
   height: 100%;
   border-style: solid;
   border-width: 0;
   overflow: hidden;
   }
-  
+.fc-event-close{
+  position:absolute;
+  top:0px;
+  right:5px;
+}  
 .fc-event-time,
 .fc-event-title {
   padding: 0 1px;
+  white-space: normal;
   }
   
 .fc .ui-resizable-handle { /*** TODO: don't use ui-resizable anymore, change class ***/

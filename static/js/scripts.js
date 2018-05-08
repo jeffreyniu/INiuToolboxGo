@@ -93,44 +93,50 @@ var App = function () {
                     }
                 },
                 events: [{
-                    title: 'All Day Event',
+                    id:1,
+                    title: 'All Day Event,This is a long title',
                     start: new Date(y, m, 1),
                     className: 'label label-default',
                 }, {
+                    id:2,    
                     title: 'Long Event',
                     start: new Date(y, m, d - 5),
                     end: new Date(y, m, d - 2),
                     className: 'label label-success',
                 }, {
-                    id: 999,
+                    id: 3,
                     title: 'Repeating Event',
                     start: new Date(y, m, d - 3, 16, 0),
                     allDay: false,
                     className: 'label label-default',
                 }, {
-                    id: 999,
+                    id: 4,
                     title: 'Repeating Event',
                     start: new Date(y, m, d + 4, 16, 0),
                     allDay: false,
                     className: 'label label-important',
-                }, {
+                    }, {
+                    id:5,    
                     title: 'Meeting',
                     start: new Date(y, m, d, 10, 30),
                     allDay: false,
                     className: 'label label-info',
-                }, {
+                    }, {
+                    id:6,      
                     title: 'Lunch',
                     start: new Date(y, m, d, 12, 0),
                     end: new Date(y, m, d, 14, 0),
                     allDay: false,
                     className: 'label label-warning',
-                }, {
+                    }, {
+                    id:7,      
                     title: 'Birthday Party',
                     start: new Date(y, m, d + 1, 19, 0),
                     end: new Date(y, m, d + 1, 22, 30),
                     allDay: false,
                     className: 'label label-success',
-                }, {
+                    }, {
+                    id:8,      
                     title: 'Click for Google',
                     start: new Date(y, m, 28),
                     end: new Date(y, m, 29),

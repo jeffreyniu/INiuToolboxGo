@@ -203,7 +203,7 @@ Website: http://thevectorlab.net/
 	<script src="/static/js/jquery-1.8.3.min.js"></script>
 	<script src="/static/assets/jquery-slimscroll/jquery-ui-1.9.2.custom.min.js"></script>
 	<script src="/static/assets/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-	<script src="/static/assets/fullcalendar/fullcalendar/fullcalendar.min.js"></script>
+	<script src="/static/assets/fullcalendar/fullcalendar/fullcalendar.js"></script>
 	<script src="/static/assets/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/static/js/jquery.blockui.js"></script>
 	<script src="/static/js/jquery.cookie.js"></script>
