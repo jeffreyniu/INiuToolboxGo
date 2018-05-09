@@ -2604,7 +2604,7 @@ function BasicEventRenderer() {
 	var getColCnt = t.getColCnt;
 	var renderDaySegs = t.renderDaySegs;
 	var resizableDayEvent = t.resizableDayEvent;
-	
+	var closeDayEvent = t.closeDayEvent;
 	
 	
 	/* Rendering
@@ -2658,6 +2658,7 @@ function BasicEventRenderer() {
 		if (seg.isEnd && isEventResizable(event)) {
 			resizableDayEvent(event, eventElement, seg);
 		}
+		closeDayEvent(event, eventElement);
 		eventElementHandlers(event, eventElement);
 			// needs to be after, because resizableDayEvent might stopImmediatePropagation on click
 	}
@@ -3632,6 +3633,7 @@ function AgendaEventRenderer() {
 	var colContentRight = t.colContentRight;
 	var renderDaySegs = t.renderDaySegs;
 	var resizableDayEvent = t.resizableDayEvent; // TODO: streamline binding architecture
+	var closeDayEvent = t.closeDayEvent;
 	var getColCnt = t.getColCnt;
 	var getColWidth = t.getColWidth;
 	var getSlotHeight = t.getSlotHeight;
@@ -3930,6 +3932,7 @@ function AgendaEventRenderer() {
 		if (seg.isEnd && isEventResizable(event)) {
 			resizableDayEvent(event, eventElement, seg);
 		}
+		closeDayEvent(event, eventElement);
 		eventElementHandlers(event, eventElement);
 			// needs to be after, because resizableDayEvent might stopImmediatePropagation on click
 	}
@@ -4473,7 +4476,7 @@ function DayEventRenderer() {
 	// exports
 	t.renderDaySegs = renderDaySegs;
 	t.resizableDayEvent = resizableDayEvent;
-	
+	t.closeDayEvent = closeDayEvent;
 	
 	// imports
 	var opt = t.opt;
@@ -4846,12 +4849,17 @@ function DayEventRenderer() {
 		}
 	}
 	
-	
-	
-	/* Resizing
+	/* Close
 	-----------------------------------------------------------------------------------*/
-	
-	
+	function closeDayEvent(event, element) {
+		var button = element.find("button.fc-event-close");
+		button.click(function (ev) {			
+			var eventNode = ev.target.parentNode;
+			eventNode.parentNode.removeChild(eventNode);
+		});
+	}
+	/* Resizing
+	-----------------------------------------------------------------------------------*/	
 	function resizableDayEvent(event, element, seg) {
 		var rtl = opt('isRTL');
 		var direction = rtl ? 'w' : 'e';
@@ -4947,8 +4955,6 @@ function DayEventRenderer() {
 			
 		});
 	}
-	
-
 }
 
 //BUG: unselect needs to be triggered when events are dragged+dropped
