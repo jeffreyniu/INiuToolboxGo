@@ -22,11 +22,6 @@ func (c *MainController) Init(ct *context.Context, cn string, actionName string,
 		c.Data["mail_msg_count"] = len(msgs)
 		c.Data["mail_msgs"] = msgs
 	}
-
-	todoMsgs, err := models.GetTodoMessages()
-	if err == nil {
-		c.Data["todo_msgs"] = todoMsgs
-	}
 }
 
 //Get MainController

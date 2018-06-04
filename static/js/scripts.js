@@ -393,10 +393,6 @@ var App = function () {
         jQuery('#alink_calendar').click(function () {
             App.scrollTo($('#widget_calendar'));
         });
-
-        jQuery('#alink_todolist').click(function () {
-            App.scrollTo($('#widget_todolist'));
-        });
     }
 
     // this is optional to use if you want animated show/hide. But plot charts can make the animation slow.
@@ -489,7 +485,7 @@ var App = function () {
                 $('.visible-ie8').show();
             }
 
-            handleNavigatorInfo(); // show Navigator Info
+            //handleNavigatorInfo(); // show Navigator Info
 
             handleDeviceWidth(); // handles proper responsive features of the page
 
