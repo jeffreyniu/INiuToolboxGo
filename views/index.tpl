@@ -91,6 +91,7 @@
                             </div>
                             <!--<div class='external-event label label-success' data-class='label label-success'>Demo Event 1</div>-->
                         </div>
+                        <input type="hidden" id="hidden_calendar_events" value="{{.calendar_events}}"/>
                         <div id="calendar" class="has-toolbar"></div>
                     </div>
                 </div>

@@ -17,10 +17,9 @@ func (c *MainController) Init(ct *context.Context, cn string, actionName string,
 	c.Controller.Init(ct, cn, actionName, app)
 	c.Layout = "layout/layout.tpl"
 
-	msgs, err := models.GetMailMessages()
+	events, err := models.GetCalendarEvents()
 	if err == nil {
-		c.Data["mail_msg_count"] = len(msgs)
-		c.Data["mail_msgs"] = msgs
+		c.Data["calendar_events"] = events
 	}
 }
 
