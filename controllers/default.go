@@ -16,10 +16,16 @@ type MainController struct {
 func (c *MainController) Init(ct *context.Context, cn string, actionName string, app interface{}) {
 	c.Controller.Init(ct, cn, actionName, app)
 	c.Layout = "layout/layout.tpl"
-
-	events, err := models.GetCalendarEvents()
-	if err == nil {
-		c.Data["calendar_events"] = events
+	
+	var condArr map[string] string
+	num,ces,err:=models.ListCalendarEvents(condArr,0,0)
+	if err==nil && num>1 {
+		events, err1 := models.SerializeCalendarEvents(ces)
+		if err1 == nil {
+			c.Data["calendar_events"] = events
+		}
+	} else {
+		c.Data["calendar_events"]=""
 	}
 }
 

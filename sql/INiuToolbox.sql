@@ -3,6 +3,7 @@ create schema if not exists INiuToolbox;
 
 use INiuToolbox;
 #create table calendar_events
+#drop table calendar_events;
 create table if not exists calendar_events(
 ID int primary key not null auto_increment,
 Title nvarchar(1000),
@@ -10,7 +11,10 @@ StartDate datetime,
 EndDate datetime,
 AllDay bool,
 Url nvarchar(5000),
-ClassName nvarchar(100)
+ClassName nvarchar(100),
+Enabled bool,
+CreatedDate timestamp,
+LastUpdatedDate timestamp
 ); 
 
 
@@ -28,8 +32,8 @@ OUT pID int
 )
 begin
 
-insert into calendar_events(Title,StartDate,EndDate,AllDay,Url,ClassName) values(
-pTitle,pStartDate,pEndDate,pAllDay,pUrl,pClassName);
+insert into calendar_events(Title,StartDate,EndDate,AllDay,Url,ClassName,Enabled,CreatedDate,LastUpdatedDate) values(
+pTitle,pStartDate,pEndDate,pAllDay,pUrl,pClassName,true,current_timestamp(),current_timestamp());
 
 set pID= last_insert_id();
 
@@ -54,7 +58,8 @@ set Title=pTitle,
 	EndDate=pEndDate,
 	AllDay=pAllDay,
 	Url=pUrl,
-	ClassName=pClassName
+	ClassName=pClassName,
+    LastUpdatedDate=current_timestamp()
 where ID=pID;
 
 end//
@@ -66,7 +71,10 @@ IN pID int
 )
 begin
 
-delete from calendar_events where ID=pID;
+update calendar_events
+set Enabled=false,
+    LastUpdatedDate=current_timestamp()
+where ID=pID;
 
 end//
 DELIMITER ;
