@@ -19,7 +19,7 @@ func (c *MainController) Init(ct *context.Context, cn string, actionName string,
 	
 	var condArr map[string] string
 	num,ces,err:=models.ListCalendarEvents(condArr,0,0)
-	if err==nil && num>1 {
+	if err==nil && num>0 {
 		events, err1 := models.SerializeCalendarEvents(ces)
 		if err1 == nil {
 			c.Data["calendar_events"] = events

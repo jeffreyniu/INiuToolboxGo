@@ -11,24 +11,24 @@ import (
 
 //CalendarEvent is a calendar event model
 type CalendarEvent struct {
-	ID    int64 `orm:"pk;column(ID);"`
-	Title string
-	Start time.Time
-	End	time.Time
-	Allday bool
-	URL string
-	ClassName string
-	Enabled bool
-	CreatedDate time.Time
-	LastUpdatedDate time.Time
+	ID    			int64 		`orm:"pk;column(ID);"`
+	Title 			string 		`orm:"column(Title);"`
+	Start 			time.Time 	`orm:"column(Start);"`
+	End				time.Time 	`orm:"column(End);"`
+	Allday 			bool 		`orm:"column(Allday);"`
+	URL 			string 		`orm:"column(URL);"`
+	ClassName 		string 		`orm:"column(ClassName);"`
+	Enabled 		bool 		`orm:"column(Enabled);"`
+	CreatedDate 	time.Time 	`orm:"column(CreatedDate);"`
+	LastUpdatedDate time.Time 	`orm:"column(LastUpdatedDate);"`
 }
 
 //TableName is a function to mapping to database table.
 func (u *CalendarEvent) TableName() string{
-	return "CalendarEvent"
+	return TableName("calendarevent")
 }
 
-func int(){
+func init(){
 	orm.RegisterModel(new(CalendarEvent))
 }
 
@@ -107,7 +107,7 @@ func ListCalendarEvents(condArr map[string] string,page int64,offset int64)(int6
 		fmt.Println(maps[0]["id"])
 	}*/
 
-	qs:=o.QueryTable("calendarevent")
+	qs:=o.QueryTable(TableName("calendarevent"))
 	
 	cond:=orm.NewCondition()
 
@@ -133,7 +133,8 @@ func ListCalendarEvents(condArr map[string] string,page int64,offset int64)(int6
  	qs = qs.OrderBy("Id") 
 	start := (page - 1) * offset 
  	var cevents []CalendarEvent 
-	num, err := qs.Limit(offset, start).All(&cevents) 
+	num, err := qs.Limit(offset, start).All(&cevents)
+
 	return num,cevents, err
 } 
 
@@ -141,7 +142,7 @@ func ListCalendarEvents(condArr map[string] string,page int64,offset int64)(int6
 func CountCalendarEvents(condArr map[string] string)(int64, error){
 	o:=orm.NewOrm()
 	o.Using("default")
-	qs:=o.QueryTable("calendarevent")
+	qs:=o.QueryTable(TableName("calendarevent"))
 	cond:=orm.NewCondition()
 
 	if(condArr["Start"]!=""){
@@ -202,6 +203,8 @@ func SerializeCalendarEvents(ces []CalendarEvent) (string, error) {
 	}
 
 	data+=`]`
+
+	fmt.Println(data)
 
 	return data, nil
 }

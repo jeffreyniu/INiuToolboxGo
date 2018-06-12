@@ -10,3 +10,8 @@ func ternary(condition bool, trueVal, falseVal interface{}) interface{} {
     }
     return falseVal
 }
+
+//TableName is a method to return table name.
+func TableName(name string) string {
+	return name
+}

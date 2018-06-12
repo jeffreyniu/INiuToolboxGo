@@ -5,6 +5,7 @@ import (
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
+	// a comment to justifying it.
 	_ "github.com/go-sql-driver/mysql"
 )
 
@@ -24,5 +25,4 @@ func InitSQL() {
 	orm.RegisterDriver("mysql", orm.DRMySQL)
 	//orm.RegisterDataBase("default", "mysql", "root:@/blog?charset=utf8", 30)
 	orm.RegisterDataBase("default", "mysql", fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8", user, passwd, host, port, dbname))
-
 }
