@@ -1,7 +1,7 @@
 package models
 
 //DateTimeFormat is date time format used by java script
-const DateTimeFormat string="2018-06-10T18:10:20+08:00"
+const DateTimeFormat string="2006-01-02 15:04:05"
 
 //ternary is a method to simulate ternary operator.
 func ternary(condition bool, trueVal, falseVal interface{}) interface{} {

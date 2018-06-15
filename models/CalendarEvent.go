@@ -2,7 +2,7 @@ package models
 
 import (
 	"time"
-	"fmt"
+	//"fmt"
 	"strings"
 	"strconv"
 	"github.com/astaxie/beego" 
@@ -204,7 +204,7 @@ func SerializeCalendarEvents(ces []CalendarEvent) (string, error) {
 
 	data+=`]`
 
-	fmt.Println(data)
+	//fmt.Println(data)
 
 	return data, nil
 }

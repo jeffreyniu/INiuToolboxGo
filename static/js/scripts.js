@@ -40,12 +40,12 @@ var App = function () {
             });
         }
 
-        var addEvent = function (title, priority) {
+        var addEvent = function (title,url, priority) {
             title = title.length == 0 ? "Untitled Event" : title;
             priority = priority.length == 0 ? "default" : priority;
 
-            var html = $('<div data-class="label label-' + priority + '" class="external-event label label-' + priority + '">' + title + '</div>');
-            jQuery('#external-events').append(html);
+            var html = $('<div data-class="label label-' + priority + '" class="external-event label label-' + priority + '">' + title +'/'+ url + '</div>');
+            jQuery('.external-events-task').append(html);
             initDrag(html);
         }
 
@@ -56,8 +56,9 @@ var App = function () {
 
             $('#event_add').click(function () {
                 var title = $('#event_title').val();
+                var url = $('#event_url').val();
                 var priority = $('#event_priority').val();
-                addEvent(title, priority);
+                addEvent(title, url,priority);
             });
             
             $('#calendar').html('');

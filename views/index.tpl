@@ -71,25 +71,31 @@
                         </div>
                     </div>
                     <div class="widget-body">
-                        <div id='external-events'>
-                            <div>
-                                <h4>Draggable Events</h4>
-                                <p>
-                                    <input type='checkbox' id='drop-remove' />Remove after drop
-                                </p>
-                                <div class='external-events-new'>
-                                    <input type="text" id="event_title"/>
-                                    <select data-placeholder="category" class="chzn-select" id='event_priority'>
-                                        <option value="default">Default</option>
-                                        <option value="success">Success</option>
-                                        <option value="info">Info</option>
-                                        <option value="warning">Warning</option>
-                                        <option value="important">Important</option>
-                                    </select>
-                                    <input type="button" id="event_add" value="New"/>        
-                                </div>                              
+                        <div id='external-events'>                                                            
+                            <div class='external-events-new post-comment'>
+                                <div style="height: 35px;">
+                                    <h4>Draggable Events</h4>
+                                    <p>
+                                        <input type='checkbox' id='drop-remove' />Remove after drop
+                                    </p>
+                                </div>
+                                <label>Title<span class="color-red">*</span></label>
+                                <input type="text" class="span12" id="event_title">
+                                <label>Link Url</label>
+                                <input type="text" class="span12" id="event_url">
+                                <label>Category<span class="color-red">*</span></label>
+                                <select data-placeholder="category" class="span12" id='event_priority'>
+                                    <option value="default">Default</option>
+                                    <option value="success">Success</option>
+                                    <option value="info">Info</option>
+                                    <option value="warning">Warning</option>
+                                    <option value="important">Important</option>
+                                </select>
+                                <button type="button" class="btn btn-info" id="event_add">New</button>                               
                             </div>
-                            <!--<div class='external-event label label-success' data-class='label label-success'>Demo Event 1</div>-->
+                            <div class='external-events-task'>
+                                <!--<div class='external-event label label-success' data-class='label label-success'>Demo Event 1</div>-->
+                            </div>                           
                         </div>
                         <input type="hidden" id="hidden_calendar_events" value="{{.calendar_events}}"/>
                         <div id="calendar" class="has-toolbar"></div>

@@ -640,6 +640,8 @@ table.fc-border-separate {
 		}
 		
 	#external-events h4 {
+    width:50%;
+    float:left;
     padding:0.5em;
 		font-size: 12px;
     margin: 0;
@@ -661,7 +663,6 @@ table.fc-border-separate {
 		}
 		
 	#external-events p {
-		margin: -3em 0.5em;
 		font-size: 11px;
     color: #666;
     float: right;
