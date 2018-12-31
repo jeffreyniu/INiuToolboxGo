@@ -85,31 +85,6 @@ Website: http://thevectorlab.net/
 						<!-- END SUPPORT -->
 					</ul>
 				</div>
-				<div class="top-nav ">
-					<ul class="nav pull-right top-menu">
-						<!-- BEGIN USER LOGIN DROPDOWN -->
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-								<img src="/static/img/avatar1_small.jpg" alt="">
-								<span class="username">Mosaddek Hossain</span>
-								<b class="caret"></b>
-							</a>
-							<ul class="dropdown-menu">
-								<li>
-									<a href="#">
-										<i class="icon-user"></i> My Profile</a>
-								</li>
-								<li class="divider"></li>
-								<li>
-									<a href="login.html">
-										<i class="icon-key"></i> Log Out</a>
-								</li>
-							</ul>
-						</li>
-						<!-- END USER LOGIN DROPDOWN -->
-					</ul>
-					<!-- END TOP NAVIGATION MENU -->
-				</div>
 			</div>
 		</div>
 		<!-- END TOP NAVIGATION BAR -->
